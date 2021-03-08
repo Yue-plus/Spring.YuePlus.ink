@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Spring Framework 文档</title>
+<style>
+@import 'css/spring.css';
+
+.listingblock .switch {
+    border-style: none;
+    display: inline-block;
+    position: relative;
+    bottom: -3px;
+}
+
+.listingblock .switch--item {
+    padding: 10px;
+    background-color: #e6e1dc;
+    color: #282c34;
+    display: inline-block;
+    cursor: pointer;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.listingblock .switch--item:not(:first-child) {
+    border-style: none;
+}
+
+.listingblock .switch--item.selected {
+    background-color: #282c34;
+    color: #e6e1dc;
+}
+
+.listingblock pre.highlightjs {
+    padding: 0;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.hidden {
+	display: none;
+}
+
+.switch {
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #7a2518;
+	display: inline-block;
+}
+
+.switch--item {
+	padding: 10px;
+	background-color: #ffffff;
+	color: #7a2518;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.switch--item:not(:first-child) {
+	border-width: 0 0 0 1px;
+	border-style: solid;
+	border-color: #7a2518;
+}
+
+.switch--item.selected {
+	background-color: #7a2519;
+	color: #ffffff;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+<script type="text/javascript">
+function addBlockSwitches() {
+	$('.primary').each(function() {
+		primary = $(this);
+		createSwitchItem(primary, createBlockSwitch(primary)).item.addClass("selected");
+		primary.children('.title').remove();
+	});
+	$('.secondary').each(function(idx, node) {
+		secondary = $(node);
+		primary = findPrimary(secondary);
+		switchItem = createSwitchItem(secondary, primary.children('.switch'));
+		switchItem.content.addClass('hidden');
+		findPrimary(secondary).append(switchItem.content);
+		secondary.remove();
+	});
+}
+
+function createBlockSwitch(primary) {
+	blockSwitch = $('<div class="switch"></div>');
+	primary.prepend(blockSwitch);
+	return blockSwitch;
+}
+
+function findPrimary(secondary) {
+	candidate = secondary.prev();
+	while (!candidate.is('.primary')) {
+		candidate = candidate.prev();
+	}
+	return candidate;
+}
+
+function createSwitchItem(block, blockSwitch) {
+	blockName = block.children('.title').text();
+	content = block.children('.content').first().append(block.next('.colist'));
+	item = $('<div class="switch--item">' + blockName + '</div>');
+	blockSwitch.append(item);
+	return {'item': item, 'content': content};
+}
+
+function globalSwitch() {
+	$('.switch--item').each(function() {
+		var blockId = blockIdForSwitchItem($(this));
+		$(this).off('click');
+		$(this).on('click', function() {
+			selectedText = $(this).text()
+			window.localStorage.setItem(blockId, selectedText);
+			$(".switch--item").filter(function() {
+				return blockIdForSwitchItem($(this)) === blockId;
+			}).filter(function() {
+				return $(this).text() === selectedText;
+			}).each(function() {
+				select($(this))
+			});
+		});
+		if ($(this).text() === window.localStorage.getItem(blockId)) {
+			select($(this))
+		}
+	});
+}
+
+function blockIdForSwitchItem(item) {
+	idComponents = []
+	idComponents.push(item.text().toLowerCase());
+	item.siblings(".switch--item").each(function(index, sibling) {
+		idComponents.push($(sibling).text().toLowerCase());
+	});
+	return idComponents.sort().join("-")
+}
+
+function select(selected) {
+	selected.addClass('selected');
+	selected.siblings().removeClass('selected');
+	selectedContent = selected.parent().siblings(".content").eq(selected.index())
+	selectedContent.removeClass('hidden');
+	selectedContent.siblings().addClass('hidden');
+}
+
+$(addBlockSwitches);
+$(globalSwitch);
+
+</script>
+
+</head>
+<body class="book">
+<div id="header">
+<h1>Spring Framework 文档</h1>
+<div class="details">
+<span id="revnumber">version 5.3.5-SNAPSHOT</span>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><em>最新动态</em>、<em>升级文档</em>, <em>版本支持</em>、与其他专题，
+与发布节奏无关，在项目的
+<a href="https://github.com/spring-projects/spring-framework/wiki"><strong>Github Wiki</strong></a> 上进行外部维护。</p>
+</div>
+</div>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<a href="overview.html#overview">概览</a> 
+</td>
+<td class="hdlist2">
+<p>历史、设计理念、反馈、
+入门指南。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="core.html#spring-core">核心</a> 
+</td>
+<td class="hdlist2">
+<p>IoC 容器、事件、资源、国际化、
+验证、数据绑定、类型转换、SpEL、AOP。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="testing.html#testing">测试</a> 
+</td>
+<td class="hdlist2">
+<p>Mock 对象、TestContext 框架、
+Spring MVC 测试、WebTestClient。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="data-access.html#spring-data-tier">数据访问</a> 
+</td>
+<td class="hdlist2">
+<p>事务、DAO 支持、
+JDBC、R2DBC、O/R 映射、XML 编组。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="web.html#spring-web">Web Servlet</a> 
+</td>
+<td class="hdlist2">
+<p>Spring MVC、WebSocket、SockJS、
+STOMP 消息传递。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="web-reactive.html#spring-webflux">反应式 Web</a> 
+</td>
+<td class="hdlist2">
+<p>Spring WebFlux、WebClient、
+WebSocket、RSocket。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="integration.html#spring-integration">集成</a> 
+</td>
+<td class="hdlist2">
+<p>远程访问、JMS、JCA、JMX、
+电子邮件、任务、调度、缓存。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="languages.html#languages">编程语言</a> 
+</td>
+<td class="hdlist2">
+<p>Kotlin、Groovy、动态类型的编程语言。</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<a href="appendix.html#appendix">附录</a> 
+</td>
+<td class="hdlist2">
+<p>其他专题</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Rod Johnson, Juergen Hoeller, Keith Donald, Colin Sampaleanu, Rob Harrop, Thomas Risberg,
+Alef Arendsen, Darren Davison, Dmitriy Kopylenko, Mark Pollack, Thierry Templier, Erwin
+Vervaet, Portia Tung, Ben Hale, Adrian Colyer, John Lewis, Costin Leau, Mark Fisher, Sam
+Brannen, Ramnivas Laddad, Arjen Poutsma, Chris Beams, Tareq Abedrabbo, Andy Clement, Dave
+Syer, Oliver Gierke, Rossen Stoyanchev, Phillip Webb, Rob Winch, Brian Clozel, Stephane
+Nicoll, Sebastien Deleuze, Jay Bryant, Mark Paluch</p>
+</div>
+<div class="paragraph">
+<p>Copyright © 2002 - 2021 Pivotal, Inc. All Rights Reserved.</p>
+</div>
+<div class="paragraph">
+<p>本文档的副本可以供你自己使用，也可以分发给他人，
+但前提是你不对此类副本收取任何费用，
+并且还应确保每份副本均包含本版权声明（无论是印刷版本还是电子版本）。</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 5.3.5-SNAPSHOT<br>
+Last updated 2021-03-08 09:28:36 +0800
+</div>
+</div>
+<link rel="stylesheet" href="js/highlight/styles/googlecode.min.css">
+<script src="js/highlight/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+</body>
+</html>
