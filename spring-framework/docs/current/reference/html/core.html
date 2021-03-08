@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Core Technologies</title>
+<title>核心技术</title>
 <style>
 @import 'css/spring.css';
 
@@ -158,246 +158,246 @@ $(globalSwitch);
 </head>
 <body id="spring-core" class="book toc2 toc-left">
 <div id="header">
-<h1>Core Technologies</h1>
+<h1>核心技术</h1>
 <div class="details">
 <span id="revnumber">version 5.3.5-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#beans">1. The IoC Container</a>
+<li><a href="#beans">1. IoC 容器</a>
 <ul class="sectlevel2">
-<li><a href="#beans-introduction">1.1. Introduction to the Spring IoC Container and Beans</a></li>
-<li><a href="#beans-basics">1.2. Container Overview</a>
+<li><a href="#beans-introduction">1.1. Spring IoC 容器与 Bean 简介</a></li>
+<li><a href="#beans-basics">1.2. 容器概述</a>
 <ul class="sectlevel3">
-<li><a href="#beans-factory-metadata">1.2.1. Configuration Metadata</a></li>
-<li><a href="#beans-factory-instantiation">1.2.2. Instantiating a Container</a>
+<li><a href="#beans-factory-metadata">1.2.1. 配置元数据</a></li>
+<li><a href="#beans-factory-instantiation">1.2.2. 实例化容器</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-xml-import">Composing XML-based Configuration Metadata</a></li>
-<li><a href="#groovy-bean-definition-dsl">The Groovy Bean Definition DSL</a></li>
+<li><a href="#beans-factory-xml-import">组合基于 XML 的配置元数据</a></li>
+<li><a href="#groovy-bean-definition-dsl">Groovy Bean 定义 DSL</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-client">1.2.3. Using the Container</a></li>
+<li><a href="#beans-factory-client">1.2.3. 使用容器</a></li>
 </ul>
 </li>
-<li><a href="#beans-definition">1.3. Bean Overview</a>
+<li><a href="#beans-definition">1.3. Bean 概览</a>
 <ul class="sectlevel3">
-<li><a href="#beans-beanname">1.3.1. Naming Beans</a>
+<li><a href="#beans-beanname">1.3.1. 命名 Bean</a>
 <ul class="sectlevel4">
-<li><a href="#beans-beanname-alias">Aliasing a Bean outside the Bean Definition</a></li>
+<li><a href="#beans-beanname-alias">在 Bean 定义之外别名 Bean</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-class">1.3.2. Instantiating Beans</a>
+<li><a href="#beans-factory-class">1.3.2. 实例化 Bean</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-class-ctor">Instantiation with a Constructor</a></li>
-<li><a href="#beans-factory-class-static-factory-method">Instantiation with a Static Factory Method</a></li>
-<li><a href="#beans-factory-class-instance-factory-method">Instantiation by Using an Instance Factory Method</a></li>
-<li><a href="#beans-factory-type-determination">Determining a Bean&#8217;s Runtime Type</a></li>
+<li><a href="#beans-factory-class-ctor">用构造函数实例化</a></li>
+<li><a href="#beans-factory-class-static-factory-method">用静态工厂方法实例化</a></li>
+<li><a href="#beans-factory-class-instance-factory-method">使用实例工厂方法实例化</a></li>
+<li><a href="#beans-factory-type-determination">确定 Bean 的运行时类型</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#beans-dependencies">1.4. Dependencies</a>
+<li><a href="#beans-dependencies">1.4. 依赖</a>
 <ul class="sectlevel3">
-<li><a href="#beans-factory-collaborators">1.4.1. Dependency Injection</a>
+<li><a href="#beans-factory-collaborators">1.4.1. 依赖注入</a>
 <ul class="sectlevel4">
-<li><a href="#beans-constructor-injection">Constructor-based Dependency Injection</a></li>
-<li><a href="#beans-setter-injection">Setter-based Dependency Injection</a></li>
-<li><a href="#beans-dependency-resolution">Dependency Resolution Process</a></li>
-<li><a href="#beans-some-examples">Examples of Dependency Injection</a></li>
+<li><a href="#beans-constructor-injection">基于构造函数的依赖注入</a></li>
+<li><a href="#beans-setter-injection">基于 Setter 的依赖注入</a></li>
+<li><a href="#beans-dependency-resolution">依赖性解析过程</a></li>
+<li><a href="#beans-some-examples">依赖注入的示例</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-properties-detailed">1.4.2. Dependencies and Configuration in Detail</a>
+<li><a href="#beans-factory-properties-detailed">1.4.2. 依赖与详细配置</a>
 <ul class="sectlevel4">
-<li><a href="#beans-value-element">Straight Values (Primitives, Strings, and so on)</a></li>
-<li><a href="#beans-ref-element">References to Other Beans (Collaborators)</a></li>
-<li><a href="#beans-inner-beans">Inner Beans</a></li>
-<li><a href="#beans-collection-elements">Collections</a></li>
-<li><a href="#beans-null-element">Null and Empty String Values</a></li>
-<li><a href="#beans-p-namespace">XML Shortcut with the p-namespace</a></li>
-<li><a href="#beans-c-namespace">XML Shortcut with the c-namespace</a></li>
-<li><a href="#beans-compound-property-names">Compound Property Names</a></li>
+<li><a href="#beans-value-element">直值（原语、字符串等）</a></li>
+<li><a href="#beans-ref-element">对其他 Bean 的引用（协作者）</a></li>
+<li><a href="#beans-inner-beans">内部 Bean</a></li>
+<li><a href="#beans-collection-elements">集合</a></li>
+<li><a href="#beans-null-element">空值与空字符串值</a></li>
+<li><a href="#beans-p-namespace">具有 p- 命名空间的 XML 快捷方式</a></li>
+<li><a href="#beans-c-namespace">具有 c- 命名空间的 XML 快捷方式</a></li>
+<li><a href="#beans-compound-property-names">复合属性名称</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-dependson">1.4.3. Using <code>depends-on</code></a></li>
-<li><a href="#beans-factory-lazy-init">1.4.4. Lazy-initialized Beans</a></li>
-<li><a href="#beans-factory-autowire">1.4.5. Autowiring Collaborators</a>
+<li><a href="#beans-factory-dependson">1.4.3. 使用 <code>depends-on</code></a></li>
+<li><a href="#beans-factory-lazy-init">1.4.4. 延迟初始化的 Bean</a></li>
+<li><a href="#beans-factory-autowire">1.4.5. 自动装配合作者</a>
 <ul class="sectlevel4">
-<li><a href="#beans-autowired-exceptions">Limitations and Disadvantages of Autowiring</a></li>
-<li><a href="#beans-factory-autowire-candidate">Excluding a Bean from Autowiring</a></li>
+<li><a href="#beans-autowired-exceptions">自动装配的局限性与缺点</a></li>
+<li><a href="#beans-factory-autowire-candidate">从自动装配中排除 Bean</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-method-injection">1.4.6. Method Injection</a>
+<li><a href="#beans-factory-method-injection">1.4.6. 方法注入</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-lookup-method-injection">Lookup Method Injection</a></li>
-<li><a href="#beans-factory-arbitrary-method-replacement">Arbitrary Method Replacement</a></li>
+<li><a href="#beans-factory-lookup-method-injection">查找方法注入</a></li>
+<li><a href="#beans-factory-arbitrary-method-replacement">任意方法替换</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#beans-factory-scopes">1.5. Bean Scopes</a>
+<li><a href="#beans-factory-scopes">1.5. Bean 作用域</a>
 <ul class="sectlevel3">
-<li><a href="#beans-factory-scopes-singleton">1.5.1. The Singleton Scope</a></li>
-<li><a href="#beans-factory-scopes-prototype">1.5.2. The Prototype Scope</a></li>
-<li><a href="#beans-factory-scopes-sing-prot-interaction">1.5.3. Singleton Beans with Prototype-bean Dependencies</a></li>
-<li><a href="#beans-factory-scopes-other">1.5.4. Request, Session, Application, and WebSocket Scopes</a>
+<li><a href="#beans-factory-scopes-singleton">1.5.1. 单例作用域</a></li>
+<li><a href="#beans-factory-scopes-prototype">1.5.2. 原型作用域</a></li>
+<li><a href="#beans-factory-scopes-sing-prot-interaction">1.5.3. 带有原型 Bean 依赖的单例 Bean</a></li>
+<li><a href="#beans-factory-scopes-other">1.5.4. 请求、会话、应用程序与 WebSocket 作用域</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-scopes-other-web-configuration">Initial Web Configuration</a></li>
-<li><a href="#beans-factory-scopes-request">Request scope</a></li>
-<li><a href="#beans-factory-scopes-session">Session Scope</a></li>
-<li><a href="#beans-factory-scopes-application">Application Scope</a></li>
-<li><a href="#beans-factory-scopes-other-injection">Scoped Beans as Dependencies</a></li>
+<li><a href="#beans-factory-scopes-other-web-configuration">初始 Web 配置</a></li>
+<li><a href="#beans-factory-scopes-request">请求作用域</a></li>
+<li><a href="#beans-factory-scopes-session">会话作用域</a></li>
+<li><a href="#beans-factory-scopes-application">应用程序作用域</a></li>
+<li><a href="#beans-factory-scopes-other-injection">限定作用域的 Bean 作为依赖</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-scopes-custom">1.5.5. Custom Scopes</a>
+<li><a href="#beans-factory-scopes-custom">1.5.5. 自定义作用域</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-scopes-custom-creating">Creating a Custom Scope</a></li>
-<li><a href="#beans-factory-scopes-custom-using">Using a Custom Scope</a></li>
+<li><a href="#beans-factory-scopes-custom-creating">创建自定义作用域</a></li>
+<li><a href="#beans-factory-scopes-custom-using">使用自定义作用域</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#beans-factory-nature">1.6. Customizing the Nature of a Bean</a>
+<li><a href="#beans-factory-nature">1.6. 自定义 Bean 的性质</a>
 <ul class="sectlevel3">
-<li><a href="#beans-factory-lifecycle">1.6.1. Lifecycle Callbacks</a>
+<li><a href="#beans-factory-lifecycle">1.6.1. 生命周期回调</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-lifecycle-initializingbean">Initialization Callbacks</a></li>
-<li><a href="#beans-factory-lifecycle-disposablebean">Destruction Callbacks</a></li>
-<li><a href="#beans-factory-lifecycle-default-init-destroy-methods">Default Initialization and Destroy Methods</a></li>
-<li><a href="#beans-factory-lifecycle-combined-effects">Combining Lifecycle Mechanisms</a></li>
-<li><a href="#beans-factory-lifecycle-processor">Startup and Shutdown Callbacks</a></li>
-<li><a href="#beans-factory-shutdown">Shutting Down the Spring IoC Container Gracefully in Non-Web Applications</a></li>
+<li><a href="#beans-factory-lifecycle-initializingbean">初始化回调</a></li>
+<li><a href="#beans-factory-lifecycle-disposablebean">销毁回调</a></li>
+<li><a href="#beans-factory-lifecycle-default-init-destroy-methods">默认初始化与销毁方法</a></li>
+<li><a href="#beans-factory-lifecycle-combined-effects">组合生命周期机制</a></li>
+<li><a href="#beans-factory-lifecycle-processor">启动与关闭回调</a></li>
+<li><a href="#beans-factory-shutdown">在非 Web 应用程序中正常关闭 Spring IoC 容器</a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-aware">1.6.2. <code>ApplicationContextAware</code> and <code>BeanNameAware</code></a></li>
-<li><a href="#aware-list">1.6.3. Other <code>Aware</code> Interfaces</a></li>
+<li><a href="#beans-factory-aware">1.6.2. <code>ApplicationContextAware</code> 与 <code>BeanNameAware</code></a></li>
+<li><a href="#aware-list">1.6.3. 其他 <code>Aware</code> 接口</a></li>
 </ul>
 </li>
-<li><a href="#beans-child-bean-definitions">1.7. Bean Definition Inheritance</a></li>
-<li><a href="#beans-factory-extension">1.8. Container Extension Points</a>
+<li><a href="#beans-child-bean-definitions">1.7. Bean 自定义继承</a></li>
+<li><a href="#beans-factory-extension">1.8. 容器扩展点</a>
 <ul class="sectlevel3">
-<li><a href="#beans-factory-extension-bpp">1.8.1. Customizing Beans by Using a <code>BeanPostProcessor</code></a>
+<li><a href="#beans-factory-extension-bpp">1.8.1. 使用 <code>BeanPostProcessor</code> 自定义 Bean</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-extension-bpp-examples-hw">Example: Hello World, <code>BeanPostProcessor</code>-style</a></li>
-<li><a href="#beans-factory-extension-bpp-examples-aabpp">Example: The <code>AutowiredAnnotationBeanPostProcessor</code></a></li>
+<li><a href="#beans-factory-extension-bpp-examples-hw">示例：Hello World、<code>BeanPostProcessor</code> 风格</a></li>
+<li><a href="#beans-factory-extension-bpp-examples-aabpp">示例：<code>AutowiredAnnotationBeanPostProcessor</code></a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-extension-factory-postprocessors">1.8.2. Customizing Configuration Metadata with a <code>BeanFactoryPostProcessor</code></a>
+<li><a href="#beans-factory-extension-factory-postprocessors">1.8.2. 使用 <code>BeanFactoryPostProcessor</code> 自定义配置元数据</a>
 <ul class="sectlevel4">
-<li><a href="#beans-factory-placeholderconfigurer">Example: The Class Name Substitution <code>PropertySourcesPlaceholderConfigurer</code></a></li>
-<li><a href="#beans-factory-overrideconfigurer">Example: The <code>PropertyOverrideConfigurer</code></a></li>
+<li><a href="#beans-factory-placeholderconfigurer">示例：类名替换 <code>PropertySourcesPlaceholderConfigurer</code></a></li>
+<li><a href="#beans-factory-overrideconfigurer">示例：<code>PropertyOverrideConfigurer</code></a></li>
 </ul>
 </li>
-<li><a href="#beans-factory-extension-factorybean">1.8.3. Customizing Instantiation Logic with a <code>FactoryBean</code></a></li>
+<li><a href="#beans-factory-extension-factorybean">1.8.3. 使用 <code>FactoryBean</code> 自定义实例化逻辑</a></li>
 </ul>
 </li>
-<li><a href="#beans-annotation-config">1.9. Annotation-based Container Configuration</a>
+<li><a href="#beans-annotation-config">1.9. 基于注解的容器配置</a>
 <ul class="sectlevel3">
 <li><a href="#beans-required-annotation">1.9.1. @Required</a></li>
-<li><a href="#beans-autowired-annotation">1.9.2. Using <code>@Autowired</code></a></li>
-<li><a href="#beans-autowired-annotation-primary">1.9.3. Fine-tuning Annotation-based Autowiring with <code>@Primary</code></a></li>
-<li><a href="#beans-autowired-annotation-qualifiers">1.9.4. Fine-tuning Annotation-based Autowiring with Qualifiers</a></li>
-<li><a href="#beans-generics-as-qualifiers">1.9.5. Using Generics as Autowiring Qualifiers</a></li>
-<li><a href="#beans-custom-autowire-configurer">1.9.6. Using <code>CustomAutowireConfigurer</code></a></li>
-<li><a href="#beans-resource-annotation">1.9.7. Injection with <code>@Resource</code></a></li>
-<li><a href="#beans-value-annotations">1.9.8. Using <code>@Value</code></a></li>
-<li><a href="#beans-postconstruct-and-predestroy-annotations">1.9.9. Using <code>@PostConstruct</code> and <code>@PreDestroy</code></a></li>
+<li><a href="#beans-autowired-annotation">1.9.2. 使用 <code>@Autowired</code></a></li>
+<li><a href="#beans-autowired-annotation-primary">1.9.3. 使用 <code>@Primary</code> 微调基于注解的自动装配</a></li>
+<li><a href="#beans-autowired-annotation-qualifiers">1.9.4. 使用限定符对基于注解的自动装配进行微调</a></li>
+<li><a href="#beans-generics-as-qualifiers">1.9.5. 将泛型用作自动装配限定符</a></li>
+<li><a href="#beans-custom-autowire-configurer">1.9.6. 使用 <code>CustomAutowireConfigurer</code></a></li>
+<li><a href="#beans-resource-annotation">1.9.7. 用 <code>@Resource</code> 注入</a></li>
+<li><a href="#beans-value-annotations">1.9.8. 使用 <code>@Value</code></a></li>
+<li><a href="#beans-postconstruct-and-predestroy-annotations">1.9.9. 使用 <code>@PostConstruct</code> 与 <code>@PreDestroy</code></a></li>
 </ul>
 </li>
-<li><a href="#beans-classpath-scanning">1.10. Classpath Scanning and Managed Components</a>
+<li><a href="#beans-classpath-scanning">1.10. 类路径扫描与托管组件</a>
 <ul class="sectlevel3">
-<li><a href="#beans-stereotype-annotations">1.10.1. <code>@Component</code> and Further Stereotype Annotations</a></li>
-<li><a href="#beans-meta-annotations">1.10.2. Using Meta-annotations and Composed Annotations</a></li>
-<li><a href="#beans-scanning-autodetection">1.10.3. Automatically Detecting Classes and Registering Bean Definitions</a></li>
-<li><a href="#beans-scanning-filters">1.10.4. Using Filters to Customize Scanning</a></li>
-<li><a href="#beans-factorybeans-annotations">1.10.5. Defining Bean Metadata within Components</a></li>
-<li><a href="#beans-scanning-name-generator">1.10.6. Naming Autodetected Components</a></li>
-<li><a href="#beans-scanning-scope-resolver">1.10.7. Providing a Scope for Autodetected Components</a></li>
-<li><a href="#beans-scanning-qualifiers">1.10.8. Providing Qualifier Metadata with Annotations</a></li>
-<li><a href="#beans-scanning-index">1.10.9. Generating an Index of Candidate Components</a></li>
+<li><a href="#beans-stereotype-annotations">1.10.1. <code>@Component</code> 与其他构造型注解</a></li>
+<li><a href="#beans-meta-annotations">1.10.2. 使用元注解与组合注解</a></li>
+<li><a href="#beans-scanning-autodetection">1.10.3. 自动检测类并注册 Bean 定义</a></li>
+<li><a href="#beans-scanning-filters">1.10.4. 使用过滤器自定义扫描</a></li>
+<li><a href="#beans-factorybeans-annotations">1.10.5. 在组件中定义 Bean 元数据</a></li>
+<li><a href="#beans-scanning-name-generator">1.10.6. 命名自动检测的组件</a></li>
+<li><a href="#beans-scanning-scope-resolver">1.10.7. 提供自动检测组件的作用域</a></li>
+<li><a href="#beans-scanning-qualifiers">1.10.8. 提供带注解的限定符元数据</a></li>
+<li><a href="#beans-scanning-index">1.10.9. 生成候选组件的索引</a></li>
 </ul>
 </li>
-<li><a href="#beans-standard-annotations">1.11. Using JSR 330 Standard Annotations</a>
+<li><a href="#beans-standard-annotations">1.11. 使用 JSR 330 标准注解</a>
 <ul class="sectlevel3">
-<li><a href="#beans-inject-named">1.11.1. Dependency Injection with <code>@Inject</code> and <code>@Named</code></a></li>
-<li><a href="#beans-named">1.11.2. <code>@Named</code> and <code>@ManagedBean</code>: Standard Equivalents to the <code>@Component</code> Annotation</a></li>
-<li><a href="#beans-standard-annotations-limitations">1.11.3. Limitations of JSR-330 Standard Annotations</a></li>
+<li><a href="#beans-inject-named">1.11.1. 使用 <code>@Inject</code> 与 <code>@Named</code> 进行依赖注入</a></li>
+<li><a href="#beans-named">1.11.2. <code>@Named</code> 与 <code>@ManagedBean</code>：<code>@Component</code> 注解的的标准等效项</a></li>
+<li><a href="#beans-standard-annotations-limitations">1.11.3. JSR-330 标准注解的局限性</a></li>
 </ul>
 </li>
-<li><a href="#beans-java">1.12. Java-based Container Configuration</a>
+<li><a href="#beans-java">1.12. 基于 Java 的容器配置</a>
 <ul class="sectlevel3">
-<li><a href="#beans-java-basic-concepts">1.12.1. Basic Concepts: <code>@Bean</code> and <code>@Configuration</code></a></li>
-<li><a href="#beans-java-instantiating-container">1.12.2. Instantiating the Spring Container by Using <code>AnnotationConfigApplicationContext</code></a>
+<li><a href="#beans-java-basic-concepts">1.12.1. 基本概念：<code>@Bean</code> 与 <code>@Configuration</code></a></li>
+<li><a href="#beans-java-instantiating-container">1.12.2. 使用 <code>AnnotationConfigApplicationContext</code> 实例化 Spring 容器</a>
 <ul class="sectlevel4">
-<li><a href="#beans-java-instantiating-container-constructor">Simple Construction</a></li>
-<li><a href="#beans-java-instantiating-container-register">Building the Container Programmatically by Using <code>register(Class&lt;?&gt;&#8230;&#8203;)</code></a></li>
-<li><a href="#beans-java-instantiating-container-scan">Enabling Component Scanning with <code>scan(String&#8230;&#8203;)</code></a></li>
-<li><a href="#beans-java-instantiating-container-web">Support for Web Applications with <code>AnnotationConfigWebApplicationContext</code></a></li>
+<li><a href="#beans-java-instantiating-container-constructor">简单构造</a></li>
+<li><a href="#beans-java-instantiating-container-register">通过使用 <code>register(Class&lt;?&gt;&#8230;&#8203;)</code> 以编程方式构建容器</a></li>
+<li><a href="#beans-java-instantiating-container-scan">使用 <code>scan(String&#8230;&#8203;)</code> 启用组件扫描</a></li>
+<li><a href="#beans-java-instantiating-container-web">支持 Web 应用程序与 <code>AnnotationConfigWebApplicationContext</code></a></li>
 </ul>
 </li>
-<li><a href="#beans-java-bean-annotation">1.12.3. Using the <code>@Bean</code> Annotation</a>
+<li><a href="#beans-java-bean-annotation">1.12.3. 使用 <code>@Bean</code> 注解</a>
 <ul class="sectlevel4">
-<li><a href="#beans-java-declaring-a-bean">Declaring a Bean</a></li>
-<li><a href="#beans-java-dependencies">Bean Dependencies</a></li>
-<li><a href="#beans-java-lifecycle-callbacks">Receiving Lifecycle Callbacks</a></li>
-<li><a href="#beans-java-specifying-bean-scope">Specifying Bean Scope</a></li>
-<li><a href="#beans-java-customizing-bean-naming">Customizing Bean Naming</a></li>
-<li><a href="#beans-java-bean-aliasing">Bean Aliasing</a></li>
-<li><a href="#beans-java-bean-description">Bean Description</a></li>
+<li><a href="#beans-java-declaring-a-bean">声明 Bean</a></li>
+<li><a href="#beans-java-dependencies">Bean 依赖</a></li>
+<li><a href="#beans-java-lifecycle-callbacks">接受生命周期回调</a></li>
+<li><a href="#beans-java-specifying-bean-scope">指定 Bean 作用域</a></li>
+<li><a href="#beans-java-customizing-bean-naming">自定义 Bean 名称</a></li>
+<li><a href="#beans-java-bean-aliasing">Bean 混淆</a></li>
+<li><a href="#beans-java-bean-description">Bean 描述</a></li>
 </ul>
 </li>
-<li><a href="#beans-java-configuration-annotation">1.12.4. Using the <code>@Configuration</code> annotation</a>
+<li><a href="#beans-java-configuration-annotation">1.12.4. 使用 <code>@Configuration</code> 注解</a>
 <ul class="sectlevel4">
-<li><a href="#beans-java-injecting-dependencies">Injecting Inter-bean Dependencies</a></li>
-<li><a href="#beans-java-method-injection">Lookup Method Injection</a></li>
-<li><a href="#beans-java-further-information-java-config">Further Information About How Java-based Configuration Works Internally</a></li>
+<li><a href="#beans-java-injecting-dependencies">注入 Inter-bean 依赖</a></li>
+<li><a href="#beans-java-method-injection">查找方法注入</a></li>
+<li><a href="#beans-java-further-information-java-config">关于 Java 的配置如何在内部工作的更多信息</a></li>
 </ul>
 </li>
-<li><a href="#beans-java-composing-configuration-classes">1.12.5. Composing Java-based Configurations</a>
+<li><a href="#beans-java-composing-configuration-classes">1.12.5. 编写基于 Java 的配置</a>
 <ul class="sectlevel4">
-<li><a href="#beans-java-using-import">Using the <code>@Import</code> Annotation</a></li>
+<li><a href="#beans-java-using-import">使用 <code>@Import</code> 注解</a></li>
 <li><a href="#beans-java-conditional">Conditionally Include <code>@Configuration</code> Classes or <code>@Bean</code> Methods</a></li>
-<li><a href="#beans-java-combining">Combining Java and XML Configuration</a></li>
+<li><a href="#beans-java-combining">结合 Java 与 XML 配置</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#beans-environment">1.13. Environment Abstraction</a>
+<li><a href="#beans-environment">1.13. 环境抽象</a>
 <ul class="sectlevel3">
-<li><a href="#beans-definition-profiles">1.13.1. Bean Definition Profiles</a>
+<li><a href="#beans-definition-profiles">1.13.1. Bean 定义配置文件</a>
 <ul class="sectlevel4">
-<li><a href="#beans-definition-profiles-java">Using <code>@Profile</code></a></li>
-<li><a href="#beans-definition-profiles-xml">XML Bean Definition Profiles</a></li>
-<li><a href="#beans-definition-profiles-enable">Activating a Profile</a></li>
-<li><a href="#beans-definition-profiles-default">Default Profile</a></li>
+<li><a href="#beans-definition-profiles-java">使用 <code>@Profile</code></a></li>
+<li><a href="#beans-definition-profiles-xml">XML Bean 定义配置文件</a></li>
+<li><a href="#beans-definition-profiles-enable">激活配置文件</a></li>
+<li><a href="#beans-definition-profiles-default">默认配置文件</a></li>
 </ul>
 </li>
-<li><a href="#beans-property-source-abstraction">1.13.2. <code>PropertySource</code> Abstraction</a></li>
-<li><a href="#beans-using-propertysource">1.13.3. Using <code>@PropertySource</code></a></li>
-<li><a href="#beans-placeholder-resolution-in-statements">1.13.4. Placeholder Resolution in Statements</a></li>
+<li><a href="#beans-property-source-abstraction">1.13.2. <code>PropertySource</code> 抽象</a></li>
+<li><a href="#beans-using-propertysource">1.13.3. 使用 <code>@PropertySource</code></a></li>
+<li><a href="#beans-placeholder-resolution-in-statements">1.13.4. 语句中的占位符解析</a></li>
 </ul>
 </li>
-<li><a href="#context-load-time-weaver">1.14. Registering a <code>LoadTimeWeaver</code></a></li>
-<li><a href="#context-introduction">1.15. Additional Capabilities of the <code>ApplicationContext</code></a>
+<li><a href="#context-load-time-weaver">1.14. 注册 <code>LoadTimeWeaver</code></a></li>
+<li><a href="#context-introduction">1.15. <code>ApplicationContext</code> 的附加功能</a>
 <ul class="sectlevel3">
-<li><a href="#context-functionality-messagesource">1.15.1. Internationalization using <code>MessageSource</code></a></li>
-<li><a href="#context-functionality-events">1.15.2. Standard and Custom Events</a>
+<li><a href="#context-functionality-messagesource">1.15.1. 使用 <code>MessageSource</code> 国际化</a></li>
+<li><a href="#context-functionality-events">1.15.2. 标准事件与自定义事件</a>
 <ul class="sectlevel4">
-<li><a href="#context-functionality-events-annotation">Annotation-based Event Listeners</a></li>
-<li><a href="#context-functionality-events-async">Asynchronous Listeners</a></li>
-<li><a href="#context-functionality-events-order">Ordering Listeners</a></li>
-<li><a href="#context-functionality-events-generics">Generic Events</a></li>
+<li><a href="#context-functionality-events-annotation">基于注解的事件监听器</a></li>
+<li><a href="#context-functionality-events-async">异步的监听器</a></li>
+<li><a href="#context-functionality-events-order">订阅的监听器</a></li>
+<li><a href="#context-functionality-events-generics">通用事件</a></li>
 </ul>
 </li>
-<li><a href="#context-functionality-resources">1.15.3. Convenient Access to Low-level Resources</a></li>
-<li><a href="#context-functionality-startup">1.15.4. Application Startup tracking</a></li>
-<li><a href="#context-create">1.15.5. Convenient ApplicationContext Instantiation for Web Applications</a></li>
-<li><a href="#context-deploy-rar">1.15.6. Deploying a Spring <code>ApplicationContext</code> as a Java EE RAR File</a></li>
+<li><a href="#context-functionality-resources">1.15.3. 方便地访问低级资源</a></li>
+<li><a href="#context-functionality-startup">1.15.4. 应用程序启动跟踪</a></li>
+<li><a href="#context-create">1.15.5. 方便的 Web 应用程序的 ApplicationContext 实例化</a></li>
+<li><a href="#context-deploy-rar">1.15.6. 将Spring <code>ApplicationContext</code> 部署为 Java EE RAR 文件</a></li>
 </ul>
 </li>
-<li><a href="#beans-beanfactory">1.16. The <code>BeanFactory</code></a>
+<li><a href="#beans-beanfactory">1.16. <code>BeanFactory</code></a>
 <ul class="sectlevel3">
-<li><a href="#context-introduction-ctx-vs-beanfactory">1.16.1. <code>BeanFactory</code> or <code>ApplicationContext</code>?</a></li>
+<li><a href="#context-introduction-ctx-vs-beanfactory">1.16.1. <code>BeanFactory</code> 或 <code>ApplicationContext</code>？</a></li>
 </ul>
 </li>
 </ul>
@@ -798,32 +798,32 @@ $(globalSwitch);
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This part of the reference documentation covers all the technologies that are
-absolutely integral to the Spring Framework.</p>
+<p>参考文档的这一部分涵盖了
+Spring Framework 绝对必不可少的所有技术。</p>
 </div>
 <div class="paragraph">
-<p>Foremost amongst these is the Spring Framework&#8217;s Inversion of Control (IoC) container.
-A thorough treatment of the Spring Framework&#8217;s IoC container is closely followed by
-comprehensive coverage of Spring&#8217;s Aspect-Oriented Programming (AOP) technologies.
-The Spring Framework has its own AOP framework, which is conceptually easy to
-understand and which successfully addresses the 80% sweet spot of AOP requirements
-in Java enterprise programming.</p>
+<p>其中最重要的是 Spring 框架的控制反转（IoC）容器。
+对 Spring 框架的 IoC 容器进行彻底的处理之后，
+将全面介绍 Spring 的面向切面编程（AOP）技术。
+Spring 框架拥有自己的 AOP 框架，
+该框架在概念上易于理解，
+并且成功解决了 Java 企业编程中 AOP 要求的 80％ 的难题。</p>
 </div>
 <div class="paragraph">
-<p>Coverage of Spring&#8217;s integration with AspectJ (currently the richest&#8201;&#8212;&#8201;in terms of
-features&#8201;&#8212;&#8201;and certainly most mature AOP implementation in the Java enterprise space)
-is also provided.</p>
+<p>还介绍了 Spring 与 AspectJ 的集成
+（目前在特性方面是最丰富的，
+当然也是 Java 企业领域中最成熟的 AOP 实现）。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="beans"><a class="anchor" href="#beans"></a>1. The IoC Container</h2>
+<h2 id="beans"><a class="anchor" href="#beans"></a>1. IoC 容器</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter covers Spring&#8217;s Inversion of Control (IoC) container.</p>
 </div>
 <div class="sect2">
-<h3 id="beans-introduction"><a class="anchor" href="#beans-introduction"></a>1.1. Introduction to the Spring IoC Container and Beans</h3>
+<h3 id="beans-introduction"><a class="anchor" href="#beans-introduction"></a>1.1. Spring IoC 容器与 Bean 简介</h3>
 <div class="paragraph">
 <p>This chapter covers the Spring Framework implementation of the Inversion of Control
 (IoC) principle. IoC is also known as dependency injection (DI). It is a process whereby
@@ -867,7 +867,7 @@ functionality, and the <code>ApplicationContext</code> adds more enterprise-spec
 The <code>ApplicationContext</code> is a complete superset of the <code>BeanFactory</code> and is used
 exclusively in this chapter in descriptions of Spring&#8217;s IoC container. For more
 information on using the <code>BeanFactory</code> instead of the <code>ApplicationContext,</code> see
-<a href="#beans-beanfactory">The <code>BeanFactory</code></a>.</p>
+<a href="#beans-beanfactory"><code>BeanFactory</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>In Spring, the objects that form the backbone of your application and that are managed
@@ -878,7 +878,7 @@ among them, are reflected in the configuration metadata used by a container.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-basics"><a class="anchor" href="#beans-basics"></a>1.2. Container Overview</h3>
+<h3 id="beans-basics"><a class="anchor" href="#beans-basics"></a>1.2. 容器概述</h3>
 <div class="paragraph">
 <p>The <code>org.springframework.context.ApplicationContext</code> interface represents the Spring IoC
 container and is responsible for instantiating, configuring, and assembling the
@@ -903,7 +903,7 @@ additional metadata formats.</p>
 <p>In most application scenarios, explicit user code is not required to instantiate one or
 more instances of a Spring IoC container. For example, in a web application scenario, a
 simple eight (or so) lines of boilerplate web descriptor XML in the <code>web.xml</code> file
-of the application typically suffices (see <a href="#context-create">Convenient ApplicationContext Instantiation for Web Applications</a>). If you use the
+of the application typically suffices (see <a href="#context-create">方便的 Web 应用程序的 ApplicationContext 实例化</a>). If you use the
 <a href="https://spring.io/tools">Spring Tools for Eclipse</a> (an Eclipse-powered development
 environment), you can easily create this boilerplate configuration with a few mouse clicks or
 keystrokes.</p>
@@ -921,7 +921,7 @@ application.</p>
 <div class="title">Figure 1. The Spring IoC container</div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-metadata"><a class="anchor" href="#beans-factory-metadata"></a>1.2.1. Configuration Metadata</h4>
+<h4 id="beans-factory-metadata"><a class="anchor" href="#beans-factory-metadata"></a>1.2.1. 配置元数据</h4>
 <div class="paragraph">
 <p>As the preceding diagram shows, the Spring IoC container consumes a form of
 configuration metadata. This configuration metadata represents how you, as an
@@ -1030,7 +1030,7 @@ referring to collaborating objects is not shown in this example. See
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-instantiation"><a class="anchor" href="#beans-factory-instantiation"></a>1.2.2. Instantiating a Container</h4>
+<h4 id="beans-factory-instantiation"><a class="anchor" href="#beans-factory-instantiation"></a>1.2.2. 实例化容器</h4>
 <div class="paragraph">
 <p>The location path or paths
 supplied to an <code>ApplicationContext</code> constructor are resource strings that let
@@ -1125,7 +1125,7 @@ collaborating objects. For details of configuring an object&#8217;s dependencies
 <a href="#beans-dependencies">Dependencies</a>.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-xml-import"><a class="anchor" href="#beans-factory-xml-import"></a>Composing XML-based Configuration Metadata</h5>
+<h5 id="beans-factory-xml-import"><a class="anchor" href="#beans-factory-xml-import"></a>组合基于 XML 的配置元数据</h5>
 <div class="paragraph">
 <p>It can be useful to have bean definitions span multiple XML files. Often, each individual
 XML configuration file represents a logical layer or module in your architecture.</p>
@@ -1194,7 +1194,7 @@ of XML namespaces provided by Spring&#8201;&#8212;&#8201;for example, the <code>
 </div>
 </div>
 <div class="sect4">
-<h5 id="groovy-bean-definition-dsl"><a class="anchor" href="#groovy-bean-definition-dsl"></a>The Groovy Bean Definition DSL</h5>
+<h5 id="groovy-bean-definition-dsl"><a class="anchor" href="#groovy-bean-definition-dsl"></a>Groovy Bean 定义 DSL</h5>
 <div class="paragraph">
 <p>As a further example for externalized configuration metadata, bean definitions can also
 be expressed in Spring&#8217;s Groovy Bean Definition DSL, as known from the Grails framework.
@@ -1230,7 +1230,7 @@ bean definition files through an <code>importBeans</code> directive.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-client"><a class="anchor" href="#beans-factory-client"></a>1.2.3. Using the Container</h4>
+<h4 id="beans-factory-client"><a class="anchor" href="#beans-factory-client"></a>1.2.3. 使用容器</h4>
 <div class="paragraph">
 <p>The <code>ApplicationContext</code> is the interface for an advanced factory capable of maintaining
 a registry of different beans and their dependencies. By using the method
@@ -1342,7 +1342,7 @@ a dependency on a specific bean through metadata (such as an autowiring annotati
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-definition"><a class="anchor" href="#beans-definition"></a>1.3. Bean Overview</h3>
+<h3 id="beans-definition"><a class="anchor" href="#beans-definition"></a>1.3. Bean 概览</h3>
 <div class="paragraph">
 <p>A Spring IoC container manages one or more beans. These beans are created with the
 configuration metadata that you supply to the container (for example, in the form of XML
@@ -1392,39 +1392,39 @@ The following table describes these properties:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Class</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-class">Instantiating Beans</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-class">实例化 Bean</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-beanname">Naming Beans</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-beanname">命名 Bean</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-scopes">Bean Scopes</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-scopes">Bean 作用域</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Constructor arguments</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-collaborators">Dependency Injection</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-collaborators">依赖注入</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-collaborators">Dependency Injection</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-collaborators">依赖注入</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Autowiring mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-autowire">Autowiring Collaborators</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-autowire">自动装配合作者</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lazy initialization mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-lazy-init">Lazy-initialized Beans</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-lazy-init">延迟初始化的 Bean</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initialization method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-lifecycle-initializingbean">Initialization Callbacks</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-lifecycle-initializingbean">初始化回调</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Destruction method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-lifecycle-disposablebean">Destruction Callbacks</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-lifecycle-disposablebean">销毁回调</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1458,7 +1458,7 @@ lead to concurrent access exceptions, inconsistent state in the bean container, 
 </table>
 </div>
 <div class="sect3">
-<h4 id="beans-beanname"><a class="anchor" href="#beans-beanname"></a>1.3.1. Naming Beans</h4>
+<h4 id="beans-beanname"><a class="anchor" href="#beans-beanname"></a>1.3.1. 命名 Bean</h4>
 <div class="paragraph">
 <p>Every bean has one or more identifiers. These identifiers must be unique within the
 container that hosts the bean. A bean usually has only one identifier. However, if it
@@ -1518,7 +1518,7 @@ defined by <code>java.beans.Introspector.decapitalize</code> (which Spring uses 
 </table>
 </div>
 <div class="sect4">
-<h5 id="beans-beanname-alias"><a class="anchor" href="#beans-beanname-alias"></a>Aliasing a Bean outside the Bean Definition</h5>
+<h5 id="beans-beanname-alias"><a class="anchor" href="#beans-beanname-alias"></a>在 Bean 定义之外别名 Bean</h5>
 <div class="paragraph">
 <p>In a bean definition itself, you can supply more than one name for the bean, by using a
 combination of up to one name specified by the <code>id</code> attribute and any number of other
@@ -1568,14 +1568,14 @@ creating a namespace), yet they refer to the same bean.</p>
 <div class="title">Java-configuration</div>
 <div class="paragraph">
 <p>If you use Javaconfiguration, the <code>@Bean</code> annotation can be used to provide aliases.
-See <a href="#beans-java-bean-annotation">Using the <code>@Bean</code> Annotation</a> for details.</p>
+See <a href="#beans-java-bean-annotation">使用 <code>@Bean</code> 注解</a> for details.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-class"><a class="anchor" href="#beans-factory-class"></a>1.3.2. Instantiating Beans</h4>
+<h4 id="beans-factory-class"><a class="anchor" href="#beans-factory-class"></a>1.3.2. 实例化 Bean</h4>
 <div class="paragraph">
 <p>A bean definition is essentially a recipe for creating one or more objects. The
 container looks at the recipe for a named bean when asked and uses the configuration
@@ -1586,7 +1586,7 @@ metadata encapsulated by that bean definition to create (or acquire) an actual o
 that is to be instantiated in the <code>class</code> attribute of the <code>&lt;bean/&gt;</code> element. This
 <code>class</code> attribute (which, internally, is a <code>Class</code> property on a <code>BeanDefinition</code>
 instance) is usually mandatory. (For exceptions, see
-<a href="#beans-factory-class-instance-factory-method">Instantiation by Using an Instance Factory Method</a> and <a href="#beans-child-bean-definitions">Bean Definition Inheritance</a>.)
+<a href="#beans-factory-class-instance-factory-method">使用实例工厂方法实例化</a> and <a href="#beans-child-bean-definitions">Bean 自定义继承</a>.)
 You can use the <code>Class</code> property in one of two ways:</p>
 </div>
 <div class="ulist">
@@ -1622,7 +1622,7 @@ a bean definition would be <code>com.example.SomeThing$OtherThing</code> or
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-class-ctor"><a class="anchor" href="#beans-factory-class-ctor"></a>Instantiation with a Constructor</h5>
+<h5 id="beans-factory-class-ctor"><a class="anchor" href="#beans-factory-class-ctor"></a>用构造函数实例化</h5>
 <div class="paragraph">
 <p>When you create a bean by the constructor approach, all normal classes are usable by and
 compatible with Spring. That is, the class being developed does not need to implement
@@ -1656,7 +1656,7 @@ and setting object instance properties after the object is constructed, see
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-class-static-factory-method"><a class="anchor" href="#beans-factory-class-static-factory-method"></a>Instantiation with a Static Factory Method</h5>
+<h5 id="beans-factory-class-static-factory-method"><a class="anchor" href="#beans-factory-class-static-factory-method"></a>用静态工厂方法实例化</h5>
 <div class="paragraph">
 <p>When defining a bean that you create with a static factory method, use the <code>class</code>
 attribute to specify the class that contains the <code>static</code> factory method and an attribute
@@ -1712,7 +1712,7 @@ see <a href="#beans-factory-properties-detailed">Dependencies and Configuration 
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-class-instance-factory-method"><a class="anchor" href="#beans-factory-class-instance-factory-method"></a>Instantiation by Using an Instance Factory Method</h5>
+<h5 id="beans-factory-class-instance-factory-method"><a class="anchor" href="#beans-factory-class-instance-factory-method"></a>使用实例工厂方法实例化</h5>
 <div class="paragraph">
 <p>Similar to instantiation through a <a href="#beans-factory-class-static-factory-method">static
 factory method</a>, instantiation with an instance factory method invokes a non-static
@@ -1848,7 +1848,7 @@ the Spring container and that creates objects through an
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-type-determination"><a class="anchor" href="#beans-factory-type-determination"></a>Determining a Bean&#8217;s Runtime Type</h5>
+<h5 id="beans-factory-type-determination"><a class="anchor" href="#beans-factory-type-determination"></a>确定 Bean 的运行时类型</h5>
 <div class="paragraph">
 <p>The runtime type of a specific bean is non-trivial to determine. A specified class in
 the bean metadata definition is just an initial class reference, potentially combined
@@ -1868,7 +1868,7 @@ going to return for the same bean name.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-dependencies"><a class="anchor" href="#beans-dependencies"></a>1.4. Dependencies</h3>
+<h3 id="beans-dependencies"><a class="anchor" href="#beans-dependencies"></a>1.4. 依赖</h3>
 <div class="paragraph">
 <p>A typical enterprise application does not consist of a single object (or bean in the
 Spring parlance). Even the simplest application has a few objects that work together to
@@ -1877,7 +1877,7 @@ you go from defining a number of bean definitions that stand alone to a fully re
 application where objects collaborate to achieve a goal.</p>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-collaborators"><a class="anchor" href="#beans-factory-collaborators"></a>1.4.1. Dependency Injection</h4>
+<h4 id="beans-factory-collaborators"><a class="anchor" href="#beans-factory-collaborators"></a>1.4.1. 依赖注入</h4>
 <div class="paragraph">
 <p>Dependency injection (DI) is a process whereby objects define their dependencies
 (that is, the other objects with which they work) only through constructor arguments,
@@ -1900,7 +1900,7 @@ which allow for stub or mock implementations to be used in unit tests.</p>
 dependency injection</a> and <a href="#beans-setter-injection">Setter-based dependency injection</a>.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-constructor-injection"><a class="anchor" href="#beans-constructor-injection"></a>Constructor-based Dependency Injection</h5>
+<h5 id="beans-constructor-injection"><a class="anchor" href="#beans-constructor-injection"></a>基于构造函数的依赖注入</h5>
 <div class="paragraph">
 <p>Constructor-based DI is accomplished by the container invoking a constructor with a
 number of arguments, each representing a dependency. Calling a <code>static</code> factory method
@@ -1940,7 +1940,7 @@ class SimpleMovieLister(private val movieFinder: MovieFinder) {
 has no dependencies on container specific interfaces, base classes or annotations.</p>
 </div>
 <div class="sect5">
-<h6 id="beans-factory-ctor-arguments-resolution"><a class="anchor" href="#beans-factory-ctor-arguments-resolution"></a>Constructor Argument Resolution</h6>
+<h6 id="beans-factory-ctor-arguments-resolution"><a class="anchor" href="#beans-factory-ctor-arguments-resolution"></a>构造函数参数解析</h6>
 <div class="paragraph">
 <p>Constructor argument resolution matching occurs by using the argument&#8217;s type. If no
 potential ambiguity exists in the constructor arguments of a bean definition, the
@@ -2132,7 +2132,7 @@ constructor(val years: Int, val ultimateAnswer: String)</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-setter-injection"><a class="anchor" href="#beans-setter-injection"></a>Setter-based Dependency Injection</h5>
+<h5 id="beans-setter-injection"><a class="anchor" href="#beans-setter-injection"></a>基于 Setter 的依赖注入</h5>
 <div class="paragraph">
 <p>Setter-based DI is accomplished by the container calling setter methods on your
 beans after invoking a no-argument constructor or a no-argument <code>static</code> factory method to
@@ -2220,7 +2220,7 @@ injection may be the only available form of DI.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-dependency-resolution"><a class="anchor" href="#beans-dependency-resolution"></a>Dependency Resolution Process</h5>
+<h5 id="beans-dependency-resolution"><a class="anchor" href="#beans-dependency-resolution"></a>依赖性解析过程</h5>
 <div class="paragraph">
 <p>The container performs bean dependency resolution as follows:</p>
 </div>
@@ -2253,7 +2253,7 @@ can convert a value supplied in string format to all built-in types, such as <co
 <p>The Spring container validates the configuration of each bean as the container is created.
 However, the bean properties themselves are not set until the bean is actually created.
 Beans that are singleton-scoped and set to be pre-instantiated (the default) are created
-when the container is created. Scopes are defined in <a href="#beans-factory-scopes">Bean Scopes</a>. Otherwise,
+when the container is created. Scopes are defined in <a href="#beans-factory-scopes">Bean 作用域</a>. Otherwise,
 the bean is created only when it is requested. Creation of a bean potentially causes a
 graph of beans to be created, as the bean&#8217;s dependencies and its dependencies'
 dependencies (and so on) are created and assigned. Note that resolution mismatches among
@@ -2313,7 +2313,7 @@ are invoked.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-some-examples"><a class="anchor" href="#beans-some-examples"></a>Examples of Dependency Injection</h5>
+<h5 id="beans-some-examples"><a class="anchor" href="#beans-some-examples"></a>依赖注入的示例</h5>
 <div class="paragraph">
 <p>The following example uses XML-based configuration metadata for setter-based DI. A small
 part of a Spring XML configuration file specifies some bean definitions as follows:</p>
@@ -2502,7 +2502,7 @@ do not discuss those details here.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-properties-detailed"><a class="anchor" href="#beans-factory-properties-detailed"></a>1.4.2. Dependencies and Configuration in Detail</h4>
+<h4 id="beans-factory-properties-detailed"><a class="anchor" href="#beans-factory-properties-detailed"></a>1.4.2. 依赖与详细配置</h4>
 <div class="paragraph">
 <p>As mentioned in the <a href="#beans-factory-collaborators">previous section</a>, you can define bean
 properties and constructor arguments as references to other managed beans (collaborators)
@@ -2511,7 +2511,7 @@ sub-element types within its <code>&lt;property/&gt;</code> and <code>&lt;constr
 purpose.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-value-element"><a class="anchor" href="#beans-value-element"></a>Straight Values (Primitives, Strings, and so on)</h5>
+<h5 id="beans-value-element"><a class="anchor" href="#beans-value-element"></a>直值（原语、字符串等）</h5>
 <div class="paragraph">
 <p>The <code>value</code> attribute of the <code>&lt;property/&gt;</code> element specifies a property or constructor
 argument as a human-readable string representation. Spring&#8217;s
@@ -2646,7 +2646,7 @@ interceptor names prevents you from misspelling an interceptor ID.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-ref-element"><a class="anchor" href="#beans-ref-element"></a>References to Other Beans (Collaborators)</h5>
+<h5 id="beans-ref-element"><a class="anchor" href="#beans-ref-element"></a>对其他 Bean 的引用（协作者）</h5>
 <div class="paragraph">
 <p>The <code>ref</code> element is the final element inside a <code>&lt;constructor-arg/&gt;</code> or <code>&lt;property/&gt;</code>
 definition element. Here, you set the value of the specified property of a bean to be a
@@ -2716,7 +2716,7 @@ your existing <code>ref local</code> references to <code>ref bean</code> when up
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-inner-beans"><a class="anchor" href="#beans-inner-beans"></a>Inner Beans</h5>
+<h5 id="beans-inner-beans"><a class="anchor" href="#beans-inner-beans"></a>内部 Bean</h5>
 <div class="paragraph">
 <p>A <code>&lt;bean/&gt;</code> element inside the <code>&lt;property/&gt;</code> or <code>&lt;constructor-arg/&gt;</code> elements defines an
 inner bean, as the following example shows:</p>
@@ -2749,7 +2749,7 @@ typically simply share their containing bean&#8217;s scope.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-collection-elements"><a class="anchor" href="#beans-collection-elements"></a>Collections</h5>
+<h5 id="beans-collection-elements"><a class="anchor" href="#beans-collection-elements"></a>集合</h5>
 <div class="paragraph">
 <p>The <code>&lt;list/&gt;</code>, <code>&lt;set/&gt;</code>, <code>&lt;map/&gt;</code>, and <code>&lt;props/&gt;</code> elements set the properties
 and arguments of the Java <code>Collection</code> types <code>List</code>, <code>Set</code>, <code>Map</code>, and <code>Properties</code>,
@@ -2800,7 +2800,7 @@ following elements:</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="beans-collection-elements-merging"><a class="anchor" href="#beans-collection-elements-merging"></a>Collection Merging</h6>
+<h6 id="beans-collection-elements-merging"><a class="anchor" href="#beans-collection-elements-merging"></a>合并集合</h6>
 <div class="paragraph">
 <p>The Spring container also supports merging collections. An application
 developer can define a parent <code>&lt;list/&gt;</code>, <code>&lt;map/&gt;</code>, <code>&lt;set/&gt;</code> or <code>&lt;props/&gt;</code> element
@@ -2937,7 +2937,7 @@ various value elements as being of type <code>Float</code>, and the string value
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-null-element"><a class="anchor" href="#beans-null-element"></a>Null and Empty String Values</h5>
+<h5 id="beans-null-element"><a class="anchor" href="#beans-null-element"></a>空值与空字符串值</h5>
 <div class="paragraph">
 <p>Spring treats empty arguments for properties and the like as empty <code>Strings</code>. The
 following XML-based configuration metadata snippet sets the <code>email</code> property to the empty
@@ -2994,7 +2994,7 @@ following XML-based configuration metadata snippet sets the <code>email</code> p
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-p-namespace"><a class="anchor" href="#beans-p-namespace"></a>XML Shortcut with the p-namespace</h5>
+<h5 id="beans-p-namespace"><a class="anchor" href="#beans-p-namespace"></a>具有 p- 命名空间的 XML 快捷方式</h5>
 <div class="paragraph">
 <p>The p-namespace lets you use the <code>bean</code> element&#8217;s attributes (instead of nested
 <code>&lt;property/&gt;</code> elements) to describe your property values collaborating beans, or both.</p>
@@ -3087,15 +3087,15 @@ three approaches at the same time.
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-c-namespace"><a class="anchor" href="#beans-c-namespace"></a>XML Shortcut with the c-namespace</h5>
+<h5 id="beans-c-namespace"><a class="anchor" href="#beans-c-namespace"></a>具有 c- 命名空间的 XML 快捷方式</h5>
 <div class="paragraph">
-<p>Similar to the <a href="#beans-p-namespace">XML Shortcut with the p-namespace</a>, the c-namespace, introduced in Spring
+<p>Similar to the <a href="#beans-p-namespace">具有 p- 命名空间的 XML 快捷方式</a>, the c-namespace, introduced in Spring
 3.1, allows inlined attributes for configuring the constructor arguments rather
 then nested <code>constructor-arg</code> elements.</p>
 </div>
 <div class="paragraph">
 <p>The following example uses the <code>c:</code> namespace to do the same thing as the from
-<a href="#beans-constructor-injection">Constructor-based Dependency Injection</a>:</p>
+<a href="#beans-constructor-injection">基于构造函数的依赖注入</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3163,7 +3163,7 @@ through-out your configuration.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-compound-property-names"><a class="anchor" href="#beans-compound-property-names"></a>Compound Property Names</h5>
+<h5 id="beans-compound-property-names"><a class="anchor" href="#beans-compound-property-names"></a>复合属性名称</h5>
 <div class="paragraph">
 <p>You can use compound or nested property names when you set bean properties, as long as
 all components of the path except the final property name are not <code>null</code>. Consider the
@@ -3185,7 +3185,7 @@ be <code>null</code> after the bean is constructed. Otherwise, a <code>NullPoint
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-dependson"><a class="anchor" href="#beans-factory-dependson"></a>1.4.3. Using <code>depends-on</code></h4>
+<h4 id="beans-factory-dependson"><a class="anchor" href="#beans-factory-dependson"></a>1.4.3. 使用 <code>depends-on</code></h4>
 <div class="paragraph">
 <p>If a bean is a dependency of another bean, that usually means that one bean is set as a
 property of another. Typically you accomplish this with the <a href="#beans-ref-element"><code>&lt;ref/&gt;</code>
@@ -3235,7 +3235,7 @@ Thus, <code>depends-on</code> can also control shutdown order.
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-lazy-init"><a class="anchor" href="#beans-factory-lazy-init"></a>1.4.4. Lazy-initialized Beans</h4>
+<h4 id="beans-factory-lazy-init"><a class="anchor" href="#beans-factory-lazy-init"></a>1.4.4. 延迟初始化的 Bean</h4>
 <div class="paragraph">
 <p>By default, <code>ApplicationContext</code> implementations eagerly create and configure all
 <a href="#beans-factory-scopes-singleton">singleton</a> beans as part of the initialization
@@ -3280,7 +3280,7 @@ is injected into a singleton bean elsewhere that is not lazy-initialized.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-autowire"><a class="anchor" href="#beans-factory-autowire"></a>1.4.5. Autowiring Collaborators</h4>
+<h4 id="beans-factory-autowire"><a class="anchor" href="#beans-factory-autowire"></a>1.4.5. 自动装配合作者</h4>
 <div class="paragraph">
 <p>The Spring container can autowire relationships between collaborating beans. You can
 let Spring resolve collaborators (other beans) automatically for your bean by
@@ -3305,7 +3305,7 @@ the code base becomes more stable.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>When using XML-based configuration metadata (see <a href="#beans-factory-collaborators">Dependency Injection</a>), you
+<p>When using XML-based configuration metadata (see <a href="#beans-factory-collaborators">依赖注入</a>), you
 can specify the autowire mode for a bean definition with the <code>autowire</code> attribute of the
 <code>&lt;bean/&gt;</code> element. The autowiring functionality has four modes. You specify autowiring
 per bean and can thus choose which ones to autowire. The following table describes the
@@ -3362,7 +3362,7 @@ instance&#8217;s values consist of all bean instances that match the expected ty
 <code>Map</code> instance&#8217;s keys contain the corresponding bean names.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-autowired-exceptions"><a class="anchor" href="#beans-autowired-exceptions"></a>Limitations and Disadvantages of Autowiring</h5>
+<h5 id="beans-autowired-exceptions"><a class="anchor" href="#beans-autowired-exceptions"></a>自动装配的局限性与缺点</h5>
 <div class="paragraph">
 <p>Autowiring works best when it is used consistently across a project. If autowiring is
 not used in general, it might be confusing to developers to use it to wire only one or
@@ -3416,13 +3416,13 @@ to <code>false</code>, as described in the <a href="#beans-factory-autowire-cand
 </li>
 <li>
 <p>Implement the more fine-grained control available with annotation-based configuration,
-as described in <a href="#beans-annotation-config">Annotation-based Container Configuration</a>.</p>
+as described in <a href="#beans-annotation-config">基于注解的容器配置</a>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-autowire-candidate"><a class="anchor" href="#beans-factory-autowire-candidate"></a>Excluding a Bean from Autowiring</h5>
+<h5 id="beans-factory-autowire-candidate"><a class="anchor" href="#beans-factory-autowire-candidate"></a>从自动装配中排除 Bean</h5>
 <div class="paragraph">
 <p>On a per-bean basis, you can exclude a bean from autowiring. In Spring&#8217;s XML format, set
 the <code>autowire-candidate</code> attribute of the <code>&lt;bean/&gt;</code> element to <code>false</code>. The container
@@ -3461,7 +3461,7 @@ using autowiring. Rather, the bean itself is not a candidate for autowiring othe
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-method-injection"><a class="anchor" href="#beans-factory-method-injection"></a>1.4.6. Method Injection</h4>
+<h4 id="beans-factory-method-injection"><a class="anchor" href="#beans-factory-method-injection"></a>1.4.6. 方法注入</h4>
 <div class="paragraph">
 <p>In most application scenarios, most beans in the container are
 <a href="#beans-factory-scopes-singleton">singletons</a>. When a singleton bean needs to
@@ -3561,7 +3561,7 @@ container, lets you handle this use case cleanly.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-lookup-method-injection"><a class="anchor" href="#beans-factory-lookup-method-injection"></a>Lookup Method Injection</h5>
+<h5 id="beans-factory-lookup-method-injection"><a class="anchor" href="#beans-factory-lookup-method-injection"></a>查找方法注入</h5>
 <div class="paragraph">
 <p>Lookup method injection is the ability of the container to override methods on
 container-managed beans and return the lookup result for another named bean in the
@@ -3774,7 +3774,7 @@ apply to explicitly registered or explicitly imported bean classes.</p>
 <td class="content">
 <div class="paragraph">
 <p>Another way of accessing differently scoped target beans is an <code>ObjectFactory</code>/
-<code>Provider</code> injection point. See <a href="#beans-factory-scopes-other-injection">Scoped Beans as Dependencies</a>.</p>
+<code>Provider</code> injection point. See <a href="#beans-factory-scopes-other-injection">限定作用域的 Bean 作为依赖</a>.</p>
 </div>
 <div class="paragraph">
 <p>You may also find the <code>ServiceLocatorFactoryBean</code> (in the
@@ -3786,7 +3786,7 @@ apply to explicitly registered or explicitly imported bean classes.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-arbitrary-method-replacement"><a class="anchor" href="#beans-factory-arbitrary-method-replacement"></a>Arbitrary Method Replacement</h5>
+<h5 id="beans-factory-arbitrary-method-replacement"><a class="anchor" href="#beans-factory-arbitrary-method-replacement"></a>任意方法替换</h5>
 <div class="paragraph">
 <p>A less useful form of method injection than lookup method injection is the ability to
 replace arbitrary methods in a managed bean with another method implementation. You
@@ -3903,7 +3903,7 @@ shortest string that matches an argument type.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-factory-scopes"><a class="anchor" href="#beans-factory-scopes"></a>1.5. Bean Scopes</h3>
+<h3 id="beans-factory-scopes"><a class="anchor" href="#beans-factory-scopes"></a>1.5. Bean 作用域</h3>
 <div class="paragraph">
 <p>When you create a bean definition, you create a recipe for creating actual instances
 of the class defined by that bean definition. The idea that a bean definition is a
@@ -3980,13 +3980,13 @@ As of Spring 3.0, a thread scope is available but is not registered by default. 
 more information, see the documentation for
 <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/support/SimpleThreadScope.html"><code>SimpleThreadScope</code></a>.
 For instructions on how to register this or any other custom scope, see
-<a href="#beans-factory-scopes-custom-using">Using a Custom Scope</a>.
+<a href="#beans-factory-scopes-custom-using">使用自定义作用域</a>.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-scopes-singleton"><a class="anchor" href="#beans-factory-scopes-singleton"></a>1.5.1. The Singleton Scope</h4>
+<h4 id="beans-factory-scopes-singleton"><a class="anchor" href="#beans-factory-scopes-singleton"></a>1.5.1. 单例作用域</h4>
 <div class="paragraph">
 <p>Only one shared instance of a singleton bean is managed, and all requests for beans
 with an ID or IDs that match that bean definition result in that one specific bean
@@ -4025,7 +4025,7 @@ following example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-scopes-prototype"><a class="anchor" href="#beans-factory-scopes-prototype"></a>1.5.2. The Prototype Scope</h4>
+<h4 id="beans-factory-scopes-prototype"><a class="anchor" href="#beans-factory-scopes-prototype"></a>1.5.2. 原型作用域</h4>
 <div class="paragraph">
 <p>The non-singleton prototype scope of bean deployment results in the creation of a new
 bean instance every time a request for that specific bean is made. That is, the bean
@@ -4071,11 +4071,11 @@ beans that need to be cleaned up.</p>
 <p>In some respects, the Spring container&#8217;s role in regard to a prototype-scoped bean is a
 replacement for the Java <code>new</code> operator. All lifecycle management past that point must
 be handled by the client. (For details on the lifecycle of a bean in the Spring
-container, see <a href="#beans-factory-lifecycle">Lifecycle Callbacks</a>.)</p>
+container, see <a href="#beans-factory-lifecycle">生命周期回调</a>.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-scopes-sing-prot-interaction"><a class="anchor" href="#beans-factory-scopes-sing-prot-interaction"></a>1.5.3. Singleton Beans with Prototype-bean Dependencies</h4>
+<h4 id="beans-factory-scopes-sing-prot-interaction"><a class="anchor" href="#beans-factory-scopes-sing-prot-interaction"></a>1.5.3. 带有原型 Bean 依赖的单例 Bean</h4>
 <div class="paragraph">
 <p>When you use singleton-scoped beans with dependencies on prototype beans, be aware that
 dependencies are resolved at instantiation time. Thus, if you dependency-inject a
@@ -4089,11 +4089,11 @@ prototype-scoped bean repeatedly at runtime. You cannot dependency-inject a
 prototype-scoped bean into your singleton bean, because that injection occurs only
 once, when the Spring container instantiates the singleton bean and resolves
 and injects its dependencies. If you need a new instance of a prototype bean at
-runtime more than once, see <a href="#beans-factory-method-injection">Method Injection</a></p>
+runtime more than once, see <a href="#beans-factory-method-injection">方法注入</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-scopes-other"><a class="anchor" href="#beans-factory-scopes-other"></a>1.5.4. Request, Session, Application, and WebSocket Scopes</h4>
+<h4 id="beans-factory-scopes-other"><a class="anchor" href="#beans-factory-scopes-other"></a>1.5.4. 请求、会话、应用程序与 WebSocket 作用域</h4>
 <div class="paragraph">
 <p>The <code>request</code>, <code>session</code>, <code>application</code>, and <code>websocket</code> scopes are available only
 if you use a web-aware Spring <code>ApplicationContext</code> implementation (such as
@@ -4102,7 +4102,7 @@ such as the <code>ClassPathXmlApplicationContext</code>, an <code>IllegalStateEx
 about an unknown bean scope is thrown.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-other-web-configuration"><a class="anchor" href="#beans-factory-scopes-other-web-configuration"></a>Initial Web Configuration</h5>
+<h5 id="beans-factory-scopes-other-web-configuration"><a class="anchor" href="#beans-factory-scopes-other-web-configuration"></a>初始 Web 配置</h5>
 <div class="paragraph">
 <p>To support the scoping of beans at the <code>request</code>, <code>session</code>, <code>application</code>, and
 <code>websocket</code> levels (web-scoped beans), some minor initial configuration is
@@ -4168,7 +4168,7 @@ down the call chain.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-request"><a class="anchor" href="#beans-factory-scopes-request"></a>Request scope</h5>
+<h5 id="beans-factory-scopes-request"><a class="anchor" href="#beans-factory-scopes-request"></a>请求作用域</h5>
 <div class="paragraph">
 <p>Consider the following XML configuration for a bean definition:</p>
 </div>
@@ -4213,7 +4213,7 @@ class LoginAction {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-session"><a class="anchor" href="#beans-factory-scopes-session"></a>Session Scope</h5>
+<h5 id="beans-factory-scopes-session"><a class="anchor" href="#beans-factory-scopes-session"></a>会话作用域</h5>
 <div class="paragraph">
 <p>Consider the following XML configuration for a bean definition:</p>
 </div>
@@ -4259,7 +4259,7 @@ class UserPreferences {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-application"><a class="anchor" href="#beans-factory-scopes-application"></a>Application Scope</h5>
+<h5 id="beans-factory-scopes-application"><a class="anchor" href="#beans-factory-scopes-application"></a>应用程序作用域</h5>
 <div class="paragraph">
 <p>Consider the following XML configuration for a bean definition:</p>
 </div>
@@ -4304,7 +4304,7 @@ class AppPreferences {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-other-injection"><a class="anchor" href="#beans-factory-scopes-other-injection"></a>Scoped Beans as Dependencies</h5>
+<h5 id="beans-factory-scopes-other-injection"><a class="anchor" href="#beans-factory-scopes-other-injection"></a>限定作用域的 Bean 作为依赖</h5>
 <div class="paragraph">
 <p>The Spring IoC container manages not only the instantiation of your objects (beans),
 but also the wiring up of collaborators (or dependencies). If you want to inject (for
@@ -4498,14 +4498,14 @@ see <a href="#aop-proxying">Proxying Mechanisms</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-scopes-custom"><a class="anchor" href="#beans-factory-scopes-custom"></a>1.5.5. Custom Scopes</h4>
+<h4 id="beans-factory-scopes-custom"><a class="anchor" href="#beans-factory-scopes-custom"></a>1.5.5. 自定义作用域</h4>
 <div class="paragraph">
 <p>The bean scoping mechanism is extensible. You can define your own
 scopes or even redefine existing scopes, although the latter is considered bad practice
 and you cannot override the built-in <code>singleton</code> and <code>prototype</code> scopes.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-custom-creating"><a class="anchor" href="#beans-factory-scopes-custom-creating"></a>Creating a Custom Scope</h5>
+<h5 id="beans-factory-scopes-custom-creating"><a class="anchor" href="#beans-factory-scopes-custom-creating"></a>创建自定义作用域</h5>
 <div class="paragraph">
 <p>To integrate your custom scopes into the Spring container, you need to implement the
 <code>org.springframework.beans.factory.config.Scope</code> interface, which is described in this
@@ -4595,7 +4595,7 @@ identifier can be the session identifier.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-scopes-custom-using"><a class="anchor" href="#beans-factory-scopes-custom-using"></a>Using a Custom Scope</h5>
+<h5 id="beans-factory-scopes-custom-using"><a class="anchor" href="#beans-factory-scopes-custom-using"></a>使用自定义作用域</h5>
 <div class="paragraph">
 <p>After you write and test one or more custom <code>Scope</code> implementations, you need to make
 the Spring container aware of your new scopes. The following method is the central
@@ -4720,7 +4720,7 @@ bean itself that is scoped, not the object returned from <code>getObject()</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-factory-nature"><a class="anchor" href="#beans-factory-nature"></a>1.6. Customizing the Nature of a Bean</h3>
+<h3 id="beans-factory-nature"><a class="anchor" href="#beans-factory-nature"></a>1.6. 自定义 Bean 的性质</h3>
 <div class="paragraph">
 <p>The Spring Framework provides a number of interfaces you can use to customize the nature
 of a bean. This section groups them as follows:</p>
@@ -4728,18 +4728,18 @@ of a bean. This section groups them as follows:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#beans-factory-lifecycle">Lifecycle Callbacks</a></p>
+<p><a href="#beans-factory-lifecycle">生命周期回调</a></p>
 </li>
 <li>
-<p><a href="#beans-factory-aware"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a></p>
+<p><a href="#beans-factory-aware"><code>ApplicationContextAware</code> 与 <code>BeanNameAware</code></a></p>
 </li>
 <li>
-<p><a href="#aware-list">Other <code>Aware</code> Interfaces</a></p>
+<p><a href="#aware-list">其他 <code>Aware</code> 接口</a></p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-lifecycle"><a class="anchor" href="#beans-factory-lifecycle"></a>1.6.1. Lifecycle Callbacks</h4>
+<h4 id="beans-factory-lifecycle"><a class="anchor" href="#beans-factory-lifecycle"></a>1.6.1. 生命周期回调</h4>
 <div class="paragraph">
 <p>To interact with the container&#8217;s management of the bean lifecycle, you can implement
 the Spring <code>InitializingBean</code> and <code>DisposableBean</code> interfaces. The container calls
@@ -4757,7 +4757,7 @@ perform certain actions upon initialization and destruction of your beans.</p>
 <p>The JSR-250 <code>@PostConstruct</code> and <code>@PreDestroy</code> annotations are generally considered best
 practice for receiving lifecycle callbacks in a modern Spring application. Using these
 annotations means that your beans are not coupled to Spring-specific interfaces.
-For details, see <a href="#beans-postconstruct-and-predestroy-annotations">Using <code>@PostConstruct</code> and <code>@PreDestroy</code></a>.</p>
+For details, see <a href="#beans-postconstruct-and-predestroy-annotations">使用 <code>@PostConstruct</code> 与 <code>@PreDestroy</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>If you do not want to use the JSR-250 annotations but you still want to remove
@@ -4772,7 +4772,7 @@ coupling, consider <code>init-method</code> and <code>destroy-method</code> bean
 callback interfaces it can find and call the appropriate methods. If you need custom
 features or other lifecycle behavior Spring does not by default offer, you can
 implement a <code>BeanPostProcessor</code> yourself. For more information, see
-<a href="#beans-factory-extension">Container Extension Points</a>.</p>
+<a href="#beans-factory-extension">容器扩展点</a>.</p>
 </div>
 <div class="paragraph">
 <p>In addition to the initialization and destruction callbacks, Spring-managed objects may
@@ -4783,7 +4783,7 @@ startup and shutdown process, as driven by the container&#8217;s own lifecycle.<
 <p>The lifecycle callback interfaces are described in this section.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-lifecycle-initializingbean"><a class="anchor" href="#beans-factory-lifecycle-initializingbean"></a>Initialization Callbacks</h5>
+<h5 id="beans-factory-lifecycle-initializingbean"><a class="anchor" href="#beans-factory-lifecycle-initializingbean"></a>初始化回调</h5>
 <div class="paragraph">
 <p>The <code>org.springframework.beans.factory.InitializingBean</code> interface lets a bean
 perform initialization work after the container has set all necessary properties on the
@@ -4801,7 +4801,7 @@ the <a href="#beans-postconstruct-and-predestroy-annotations"><code>@PostConstru
 specifying a POJO initialization method. In the case of XML-based configuration metadata,
 you can use the <code>init-method</code> attribute to specify the name of the method that has a void
 no-argument signature. With Java configuration, you can use the <code>initMethod</code> attribute of
-<code>@Bean</code>. See <a href="#beans-java-lifecycle-callbacks">Receiving Lifecycle Callbacks</a>. Consider the following example:</p>
+<code>@Bean</code>. See <a href="#beans-java-lifecycle-callbacks">接受生命周期回调</a>. Consider the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4867,7 +4867,7 @@ no-argument signature. With Java configuration, you can use the <code>initMethod
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-lifecycle-disposablebean"><a class="anchor" href="#beans-factory-lifecycle-disposablebean"></a>Destruction Callbacks</h5>
+<h5 id="beans-factory-lifecycle-disposablebean"><a class="anchor" href="#beans-factory-lifecycle-disposablebean"></a>销毁回调</h5>
 <div class="paragraph">
 <p>Implementing the <code>org.springframework.beans.factory.DisposableBean</code> interface lets a
 bean get a callback when the container that contains it is destroyed. The
@@ -4885,7 +4885,7 @@ the <a href="#beans-postconstruct-and-predestroy-annotations"><code>@PreDestroy<
 specifying a generic method that is supported by bean definitions. With XML-based
 configuration metadata, you can use the <code>destroy-method</code> attribute on the <code>&lt;bean/&gt;</code>.
 With Java configuration, you can use the <code>destroyMethod</code> attribute of <code>@Bean</code>. See
-<a href="#beans-java-lifecycle-callbacks">Receiving Lifecycle Callbacks</a>. Consider the following definition:</p>
+<a href="#beans-java-lifecycle-callbacks">接受生命周期回调</a>. Consider the following definition:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4961,7 +4961,7 @@ You can assign the <code>destroy-method</code> attribute of a <code>&lt;bean&gt;
 <code>java.lang.AutoCloseable</code> or <code>java.io.Closeable</code> would therefore match.) You can also set
 this special <code>(inferred)</code> value on the <code>default-destroy-method</code> attribute of a
 <code>&lt;beans&gt;</code> element to apply this behavior to an entire set of beans (see
-<a href="#beans-factory-lifecycle-default-init-destroy-methods">Default Initialization and Destroy Methods</a>). Note that this is the
+<a href="#beans-factory-lifecycle-default-init-destroy-methods">默认初始化与销毁方法</a>). Note that this is the
 default behavior with Java configuration.
 </td>
 </tr>
@@ -4969,7 +4969,7 @@ default behavior with Java configuration.
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-lifecycle-default-init-destroy-methods"><a class="anchor" href="#beans-factory-lifecycle-default-init-destroy-methods"></a>Default Initialization and Destroy Methods</h5>
+<h5 id="beans-factory-lifecycle-default-init-destroy-methods"><a class="anchor" href="#beans-factory-lifecycle-default-init-destroy-methods"></a>默认初始化与销毁方法</h5>
 <div class="paragraph">
 <p>When you write initialization and destroy method callbacks that do not use the
 Spring-specific <code>InitializingBean</code> and <code>DisposableBean</code> callback interfaces, you
@@ -5071,7 +5071,7 @@ interacts directly with the raw target bean.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-lifecycle-combined-effects"><a class="anchor" href="#beans-factory-lifecycle-combined-effects"></a>Combining Lifecycle Mechanisms</h5>
+<h5 id="beans-factory-lifecycle-combined-effects"><a class="anchor" href="#beans-factory-lifecycle-combined-effects"></a>组合生命周期机制</h5>
 <div class="paragraph">
 <p>As of Spring 2.5, you have three options for controlling bean lifecycle behavior:</p>
 </div>
@@ -5142,7 +5142,7 @@ initialization methods, are called as follows:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-lifecycle-processor"><a class="anchor" href="#beans-factory-lifecycle-processor"></a>Startup and Shutdown Callbacks</h5>
+<h5 id="beans-factory-lifecycle-processor"><a class="anchor" href="#beans-factory-lifecycle-processor"></a>启动与关闭回调</h5>
 <div class="paragraph">
 <p>The <code>Lifecycle</code> interface defines the essential methods for any object that has its own
 lifecycle requirements (such as starting and stopping some background process):</p>
@@ -5281,7 +5281,7 @@ automatically for a standard context implementation). The <code>phase</code> val
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-shutdown"><a class="anchor" href="#beans-factory-shutdown"></a>Shutting Down the Spring IoC Container Gracefully in Non-Web Applications</h5>
+<h5 id="beans-factory-shutdown"><a class="anchor" href="#beans-factory-shutdown"></a>在非 Web 应用程序中正常关闭 Spring IoC 容器</h5>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5350,7 +5350,7 @@ fun main() {
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-aware"><a class="anchor" href="#beans-factory-aware"></a>1.6.2. <code>ApplicationContextAware</code> and <code>BeanNameAware</code></h4>
+<h4 id="beans-factory-aware"><a class="anchor" href="#beans-factory-aware"></a>1.6.2. <code>ApplicationContextAware</code> 与 <code>BeanNameAware</code></h4>
 <div class="paragraph">
 <p>When an <code>ApplicationContext</code> creates an object instance that implements the
 <code>org.springframework.context.ApplicationContextAware</code> interface, the instance is provided
@@ -5375,19 +5375,19 @@ it couples the code to Spring and does not follow the Inversion of Control style
 where collaborators are provided to beans as properties. Other methods of the
 <code>ApplicationContext</code> provide access to file resources, publishing application events,
 and accessing a <code>MessageSource</code>. These additional features are described in
-<a href="#context-introduction">Additional Capabilities of the <code>ApplicationContext</code></a>.</p>
+<a href="#context-introduction"><code>ApplicationContext</code> 的附加功能</a>.</p>
 </div>
 <div class="paragraph">
 <p>Autowiring is another alternative to obtain a reference to the
 <code>ApplicationContext</code>. The <em>traditional</em> <code>constructor</code> and <code>byType</code> autowiring modes
-(as described in <a href="#beans-factory-autowire">Autowiring Collaborators</a>) can provide a dependency of type
+(as described in <a href="#beans-factory-autowire">自动装配合作者</a>) can provide a dependency of type
 <code>ApplicationContext</code> for a constructor argument or a setter method parameter,
 respectively. For more flexibility, including the ability to autowire fields and
 multiple parameter methods, use the annotation-based autowiring features. If you do,
 the <code>ApplicationContext</code> is autowired into a field, constructor argument, or method
 parameter that expects the <code>ApplicationContext</code> type if the field, constructor, or
 method in question carries the <code>@Autowired</code> annotation. For more information, see
-<a href="#beans-autowired-annotation">Using <code>@Autowired</code></a>.</p>
+<a href="#beans-autowired-annotation">使用 <code>@Autowired</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>When an <code>ApplicationContext</code> creates a class that implements the
@@ -5410,7 +5410,7 @@ init-method.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aware-list"><a class="anchor" href="#aware-list"></a>1.6.3. Other <code>Aware</code> Interfaces</h4>
+<h4 id="aware-list"><a class="anchor" href="#aware-list"></a>1.6.3. 其他 <code>Aware</code> 接口</h4>
 <div class="paragraph">
 <p>Besides <code>ApplicationContextAware</code> and <code>BeanNameAware</code> (discussed <a href="#beans-factory-aware">earlier</a>),
 Spring offers a wide range of <code>Aware</code> callback interfaces that let beans indicate to the container
@@ -5435,27 +5435,27 @@ dependency type. The following table summarizes the most important <code>Aware</
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ApplicationContextAware</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Declaring <code>ApplicationContext</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-aware"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-aware"><code>ApplicationContextAware</code> 与 <code>BeanNameAware</code></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ApplicationEventPublisherAware</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Event publisher of the enclosing <code>ApplicationContext</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#context-introduction">Additional Capabilities of the <code>ApplicationContext</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#context-introduction"><code>ApplicationContext</code> 的附加功能</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>BeanClassLoaderAware</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Class loader used to load the bean classes.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-class">Instantiating Beans</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-class">实例化 Bean</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>BeanFactoryAware</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Declaring <code>BeanFactory</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-aware"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-aware"><code>ApplicationContextAware</code> 与 <code>BeanNameAware</code></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>BeanNameAware</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name of the declaring bean.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-aware"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#beans-factory-aware"><code>ApplicationContextAware</code> 与 <code>BeanNameAware</code></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>LoadTimeWeaverAware</code></p></td>
@@ -5466,7 +5466,7 @@ dependency type. The following table summarizes the most important <code>Aware</
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MessageSourceAware</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Configured strategy for resolving messages (with support for parametrization and
   internationalization).</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#context-introduction">Additional Capabilities of the <code>ApplicationContext</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#context-introduction"><code>ApplicationContext</code> 的附加功能</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>NotificationPublisherAware</code></p></td>
@@ -5500,7 +5500,7 @@ beans that require programmatic access to the container.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-child-bean-definitions"><a class="anchor" href="#beans-child-bean-definitions"></a>1.7. Bean Definition Inheritance</h3>
+<h3 id="beans-child-bean-definitions"><a class="anchor" href="#beans-child-bean-definitions"></a>1.7. Bean 自定义继承</h3>
 <div class="paragraph">
 <p>A bean definition can contain a lot of configuration information, including constructor
 arguments, property values, and container-specific information, such as the initialization
@@ -5605,7 +5605,7 @@ context will actually (attempt to) pre-instantiate the <code>abstract</code> bea
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-factory-extension"><a class="anchor" href="#beans-factory-extension"></a>1.8. Container Extension Points</h3>
+<h3 id="beans-factory-extension"><a class="anchor" href="#beans-factory-extension"></a>1.8. 容器扩展点</h3>
 <div class="paragraph">
 <p>Typically, an application developer does not need to subclass <code>ApplicationContext</code>
 implementation classes. Instead, the Spring IoC container can be extended by plugging in
@@ -5613,7 +5613,7 @@ implementations of special integration interfaces. The next few sections describ
 integration interfaces.</p>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-extension-bpp"><a class="anchor" href="#beans-factory-extension-bpp"></a>1.8.1. Customizing Beans by Using a <code>BeanPostProcessor</code></h4>
+<h4 id="beans-factory-extension-bpp"><a class="anchor" href="#beans-factory-extension-bpp"></a>1.8.1. 使用 <code>BeanPostProcessor</code> 自定义 Bean</h4>
 <div class="paragraph">
 <p>The <code>BeanPostProcessor</code> interface defines callback methods that you can implement to
 provide your own (or override the container&#8217;s default) instantiation logic, dependency
@@ -5654,7 +5654,7 @@ another container, even if both containers are part of the same hierarchy.</p>
 <div class="paragraph">
 <p>To change the actual bean definition (that is, the blueprint that defines the bean),
 you instead need to use a <code>BeanFactoryPostProcessor</code>, as described in
-<a href="#beans-factory-extension-factory-postprocessors">Customizing Configuration Metadata with a <code>BeanFactoryPostProcessor</code></a>.</p>
+<a href="#beans-factory-extension-factory-postprocessors">使用 <code>BeanFactoryPostProcessor</code> 自定义配置元数据</a>.</p>
 </div>
 </td>
 </tr>
@@ -5751,7 +5751,7 @@ Spring accesses other beans for matching them by type.</p>
 in an <code>ApplicationContext</code>.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-extension-bpp-examples-hw"><a class="anchor" href="#beans-factory-extension-bpp-examples-hw"></a>Example: Hello World, <code>BeanPostProcessor</code>-style</h5>
+<h5 id="beans-factory-extension-bpp-examples-hw"><a class="anchor" href="#beans-factory-extension-bpp-examples-hw"></a>示例：Hello World、<code>BeanPostProcessor</code> 风格</h5>
 <div class="paragraph">
 <p>This first example illustrates basic usage. The example shows a custom
 <code>BeanPostProcessor</code> implementation that invokes the <code>toString()</code> method of each bean as
@@ -5879,7 +5879,7 @@ org.springframework.scripting.groovy.GroovyMessenger@272961</pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-extension-bpp-examples-aabpp"><a class="anchor" href="#beans-factory-extension-bpp-examples-aabpp"></a>Example: The <code>AutowiredAnnotationBeanPostProcessor</code></h5>
+<h5 id="beans-factory-extension-bpp-examples-aabpp"><a class="anchor" href="#beans-factory-extension-bpp-examples-aabpp"></a>示例：<code>AutowiredAnnotationBeanPostProcessor</code></h5>
 <div class="paragraph">
 <p>Using callback interfaces or annotations in conjunction with a custom <code>BeanPostProcessor</code>
 implementation is a common means of extending the Spring IoC container. An example is
@@ -5890,7 +5890,7 @@ and arbitrary config methods.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-extension-factory-postprocessors"><a class="anchor" href="#beans-factory-extension-factory-postprocessors"></a>1.8.2. Customizing Configuration Metadata with a <code>BeanFactoryPostProcessor</code></h4>
+<h4 id="beans-factory-extension-factory-postprocessors"><a class="anchor" href="#beans-factory-extension-factory-postprocessors"></a>1.8.2. 使用 <code>BeanFactoryPostProcessor</code> 自定义配置元数据</h4>
 <div class="paragraph">
 <p>The next extension point that we look at is the
 <code>org.springframework.beans.factory.config.BeanFactoryPostProcessor</code>. The semantics of
@@ -5919,7 +5919,7 @@ and <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc
 <div class="paragraph">
 <p>If you want to change the actual bean instances (that is, the objects that are created
 from the configuration metadata), then you instead need to use a <code>BeanPostProcessor</code>
-(described earlier in <a href="#beans-factory-extension-bpp">Customizing Beans by Using a <code>BeanPostProcessor</code></a>). While it is technically possible
+(described earlier in <a href="#beans-factory-extension-bpp">使用 <code>BeanPostProcessor</code> 自定义 Bean</a>). While it is technically possible
 to work with bean instances within a <code>BeanFactoryPostProcessor</code> (for example, by using
 <code>BeanFactory.getBean()</code>), doing so causes premature bean instantiation, violating the
 standard container lifecycle. This may cause negative side effects, such as bypassing
@@ -5967,7 +5967,7 @@ Thus, marking it for lazy initialization will be ignored, and the
 </table>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-placeholderconfigurer"><a class="anchor" href="#beans-factory-placeholderconfigurer"></a>Example: The Class Name Substitution <code>PropertySourcesPlaceholderConfigurer</code></h5>
+<h5 id="beans-factory-placeholderconfigurer"><a class="anchor" href="#beans-factory-placeholderconfigurer"></a>示例：类名替换 <code>PropertySourcesPlaceholderConfigurer</code></h5>
 <div class="paragraph">
 <p>You can use the <code>PropertySourcesPlaceholderConfigurer</code> to externalize property values
 from a bean definition in a separate file by using the standard Java <code>Properties</code> format.
@@ -6069,7 +6069,7 @@ phase of an <code>ApplicationContext</code> for a non-lazy-init bean.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-factory-overrideconfigurer"><a class="anchor" href="#beans-factory-overrideconfigurer"></a>Example: The <code>PropertyOverrideConfigurer</code></h5>
+<h5 id="beans-factory-overrideconfigurer"><a class="anchor" href="#beans-factory-overrideconfigurer"></a>示例：<code>PropertyOverrideConfigurer</code></h5>
 <div class="paragraph">
 <p>The <code>PropertyOverrideConfigurer</code>, another bean factory post-processor, resembles the
 <code>PropertySourcesPlaceholderConfigurer</code>, but unlike the latter, the original definitions
@@ -6141,7 +6141,7 @@ property overriding with a dedicated configuration element, as the following exa
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factory-extension-factorybean"><a class="anchor" href="#beans-factory-extension-factorybean"></a>1.8.3. Customizing Instantiation Logic with a <code>FactoryBean</code></h4>
+<h4 id="beans-factory-extension-factorybean"><a class="anchor" href="#beans-factory-extension-factorybean"></a>1.8.3. 使用 <code>FactoryBean</code> 自定义实例化逻辑</h4>
 <div class="paragraph">
 <p>You can implement the <code>org.springframework.beans.factory.FactoryBean</code> interface for objects that
 are themselves factories.</p>
@@ -6189,7 +6189,7 @@ product of the <code>FactoryBean</code>, whereas invoking <code>getBean("&amp;my
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-annotation-config"><a class="anchor" href="#beans-annotation-config"></a>1.9. Annotation-based Container Configuration</h3>
+<h3 id="beans-annotation-config"><a class="anchor" href="#beans-annotation-config"></a>1.9. 基于注解的容器配置</h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="title">Are annotations better than XML for configuring Spring?</div>
@@ -6218,13 +6218,13 @@ source code and that, in terms of tooling, all configuration styles are supporte
 the bytecode metadata for wiring up components instead of angle-bracket declarations.
 Instead of using XML to describe a bean wiring, the developer moves the configuration
 into the component class itself by using annotations on the relevant class, method, or
-field declaration. As mentioned in <a href="#beans-factory-extension-bpp-examples-aabpp">Example: The <code>AutowiredAnnotationBeanPostProcessor</code></a>, using
+field declaration. As mentioned in <a href="#beans-factory-extension-bpp-examples-aabpp">示例：<code>AutowiredAnnotationBeanPostProcessor</code></a>, using
 a <code>BeanPostProcessor</code> in conjunction with annotations is a common means of extending the
 Spring IoC container. For example, Spring 2.0 introduced the possibility of enforcing
 required properties with the <a href="#beans-required-annotation"><code>@Required</code></a> annotation. Spring
 2.5 made it possible to follow that same general approach to drive Spring&#8217;s dependency
 injection. Essentially, the <code>@Autowired</code> annotation provides the same capabilities as
-described in <a href="#beans-factory-autowire">Autowiring Collaborators</a> but with more fine-grained control and wider
+described in <a href="#beans-factory-autowire">自动装配合作者</a> but with more fine-grained control and wider
 applicability. Spring 2.5 also added support for JSR-250 annotations, such as
 <code>@PostConstruct</code> and <code>@PreDestroy</code>. Spring 3.0 added support for JSR-330 (Dependency
 Injection for Java) annotations contained in the <code>javax.inject</code> package such as <code>@Inject</code>
@@ -6372,7 +6372,7 @@ or a custom <code>@PostConstruct</code> method along with bean property setter m
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-autowired-annotation"><a class="anchor" href="#beans-autowired-annotation"></a>1.9.2. Using <code>@Autowired</code></h4>
+<h4 id="beans-autowired-annotation"><a class="anchor" href="#beans-autowired-annotation"></a>1.9.2. 使用 <code>@Autowired</code></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -6879,7 +6879,7 @@ These types must be 'wired up' explicitly by using XML or a Spring <code>@Bean</
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-autowired-annotation-primary"><a class="anchor" href="#beans-autowired-annotation-primary"></a>1.9.3. Fine-tuning Annotation-based Autowiring with <code>@Primary</code></h4>
+<h4 id="beans-autowired-annotation-primary"><a class="anchor" href="#beans-autowired-annotation-primary"></a>1.9.3. 使用 <code>@Primary</code> 微调基于注解的自动装配</h4>
 <div class="paragraph">
 <p>Because autowiring by type may lead to multiple candidates, it is often necessary to have
 more control over the selection process. One way to accomplish this is with Spring&#8217;s
@@ -6985,7 +6985,7 @@ class MovieConfiguration {
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-autowired-annotation-qualifiers"><a class="anchor" href="#beans-autowired-annotation-qualifiers"></a>1.9.4. Fine-tuning Annotation-based Autowiring with Qualifiers</h4>
+<h4 id="beans-autowired-annotation-qualifiers"><a class="anchor" href="#beans-autowired-annotation-qualifiers"></a>1.9.4. 使用限定符对基于注解的自动装配进行微调</h4>
 <div class="paragraph">
 <p><code>@Primary</code> is an effective way to use autowiring by type with several instances when one
 primary candidate can be determined. When you need more control over the selection process,
@@ -7314,8 +7314,8 @@ demonstrates both approaches:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In <a href="#beans-classpath-scanning">Classpath Scanning and Managed Components</a>, you can see an annotation-based alternative to
-providing the qualifier metadata in XML. Specifically, see <a href="#beans-scanning-qualifiers">Providing Qualifier Metadata with Annotations</a>.</p>
+<p>In <a href="#beans-classpath-scanning">类路径扫描与托管组件</a>, you can see an annotation-based alternative to
+providing the qualifier metadata in XML. Specifically, see <a href="#beans-scanning-qualifiers">提供带注解的限定符元数据</a>.</p>
 </div>
 <div class="paragraph">
 <p>In some cases, using an annotation without a value may suffice. This can be
@@ -7566,7 +7566,7 @@ the following example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-generics-as-qualifiers"><a class="anchor" href="#beans-generics-as-qualifiers"></a>1.9.5. Using Generics as Autowiring Qualifiers</h4>
+<h4 id="beans-generics-as-qualifiers"><a class="anchor" href="#beans-generics-as-qualifiers"></a>1.9.5. 将泛型用作自动装配限定符</h4>
 <div class="paragraph">
 <p>In addition to the <code>@Qualifier</code> annotation, you can use Java generic types
 as an implicit form of qualification. For example, suppose you have the following
@@ -7653,7 +7653,7 @@ private lateinit var s: List&lt;Store&lt;Integer&gt;&gt;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-custom-autowire-configurer"><a class="anchor" href="#beans-custom-autowire-configurer"></a>1.9.6. Using <code>CustomAutowireConfigurer</code></h4>
+<h4 id="beans-custom-autowire-configurer"><a class="anchor" href="#beans-custom-autowire-configurer"></a>1.9.6. 使用 <code>CustomAutowireConfigurer</code></h4>
 <div class="paragraph">
 <p><a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/beans/factory/annotation/CustomAutowireConfigurer.html"><code>CustomAutowireConfigurer</code></a>
 is a <code>BeanFactoryPostProcessor</code> that lets you register your own custom qualifier
@@ -7696,7 +7696,7 @@ attribute set to <code>true</code>, it is selected.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-resource-annotation"><a class="anchor" href="#beans-resource-annotation"></a>1.9.7. Injection with <code>@Resource</code></h4>
+<h4 id="beans-resource-annotation"><a class="anchor" href="#beans-resource-annotation"></a>1.9.7. 用 <code>@Resource</code> 注入</h4>
 <div class="paragraph">
 <p>Spring also supports injection by using the JSR-250 <code>@Resource</code> annotation
 (<code>javax.annotation.Resource</code>) on fields or bean property setter methods.
@@ -7862,7 +7862,7 @@ named "customerPreferenceDao" and then falls back to a primary type match for th
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-value-annotations"><a class="anchor" href="#beans-value-annotations"></a>1.9.8. Using <code>@Value</code></h4>
+<h4 id="beans-value-annotations"><a class="anchor" href="#beans-value-annotations"></a>1.9.8. 使用 <code>@Value</code></h4>
 <div class="paragraph">
 <p><code>@Value</code> is typically used to inject externalized properties:</p>
 </div>
@@ -8099,7 +8099,7 @@ class MovieRecommender(
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-postconstruct-and-predestroy-annotations"><a class="anchor" href="#beans-postconstruct-and-predestroy-annotations"></a>1.9.9. Using <code>@PostConstruct</code> and <code>@PreDestroy</code></h4>
+<h4 id="beans-postconstruct-and-predestroy-annotations"><a class="anchor" href="#beans-postconstruct-and-predestroy-annotations"></a>1.9.9. 使用 <code>@PostConstruct</code> 与 <code>@PreDestroy</code></h4>
 <div class="paragraph">
 <p>The <code>CommonAnnotationBeanPostProcessor</code> not only recognizes the <code>@Resource</code> annotation
 but also the JSR-250 lifecycle annotations: <code>javax.annotation.PostConstruct</code> and
@@ -8149,7 +8149,7 @@ cleared upon destruction:</p>
 </div>
 <div class="paragraph">
 <p>For details about the effects of combining various lifecycle mechanisms, see
-<a href="#beans-factory-lifecycle-combined-effects">Combining Lifecycle Mechanisms</a>.</p>
+<a href="#beans-factory-lifecycle-combined-effects">组合生命周期机制</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8172,11 +8172,11 @@ Central now, simply to be added to the application&#8217;s classpath like any ot
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-classpath-scanning"><a class="anchor" href="#beans-classpath-scanning"></a>1.10. Classpath Scanning and Managed Components</h3>
+<h3 id="beans-classpath-scanning"><a class="anchor" href="#beans-classpath-scanning"></a>1.10. 类路径扫描与托管组件</h3>
 <div class="paragraph">
 <p>Most examples in this chapter use XML to specify the configuration metadata that produces
 each <code>BeanDefinition</code> within the Spring container. The previous section
-(<a href="#beans-annotation-config">Annotation-based Container Configuration</a>) demonstrates how to provide a lot of the configuration
+(<a href="#beans-annotation-config">基于注解的容器配置</a>) demonstrates how to provide a lot of the configuration
 metadata through source-level annotations. Even in those examples, however, the &#8220;base&#8221;
 bean definitions are explicitly defined in the XML file, while the annotations drive only
 the dependency injection. This section describes an option for implicitly detecting the
@@ -8205,7 +8205,7 @@ than using the traditional XML files. Take a look at the <code>@Configuration</c
 </table>
 </div>
 <div class="sect3">
-<h4 id="beans-stereotype-annotations"><a class="anchor" href="#beans-stereotype-annotations"></a>1.10.1. <code>@Component</code> and Further Stereotype Annotations</h4>
+<h4 id="beans-stereotype-annotations"><a class="anchor" href="#beans-stereotype-annotations"></a>1.10.1. <code>@Component</code> 与其他构造型注解</h4>
 <div class="paragraph">
 <p>The <code>@Repository</code> annotation is a marker for any class that fulfills the role or
 stereotype of a repository (also known as Data Access Object or DAO). Among the uses
@@ -8229,7 +8229,7 @@ supported as a marker for automatic exception translation in your persistence la
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-meta-annotations"><a class="anchor" href="#beans-meta-annotations"></a>1.10.2. Using Meta-annotations and Composed Annotations</h4>
+<h4 id="beans-meta-annotations"><a class="anchor" href="#beans-meta-annotations"></a>1.10.2. 使用元注解与组合注解</h4>
 <div class="paragraph">
 <p>Many of the annotations provided by Spring can be used as meta-annotations in your
 own code. A meta-annotation is an annotation that can be applied to another annotation.
@@ -8376,7 +8376,7 @@ wiki page.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-scanning-autodetection"><a class="anchor" href="#beans-scanning-autodetection"></a>1.10.3. Automatically Detecting Classes and Registering Bean Definitions</h4>
+<h4 id="beans-scanning-autodetection"><a class="anchor" href="#beans-scanning-autodetection"></a>1.10.3. 自动检测类并注册 Bean 定义</h4>
 <div class="paragraph">
 <p>Spring can automatically detect stereotyped classes and register corresponding
 <code>BeanDefinition</code> instances with the <code>ApplicationContext</code>. For example, the following two classes
@@ -8541,7 +8541,7 @@ with a value of <code>false</code>.
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-scanning-filters"><a class="anchor" href="#beans-scanning-filters"></a>1.10.4. Using Filters to Customize Scanning</h4>
+<h4 id="beans-scanning-filters"><a class="anchor" href="#beans-scanning-filters"></a>1.10.4. 使用过滤器自定义扫描</h4>
 <div class="paragraph">
 <p>By default, classes annotated with <code>@Component</code>, <code>@Repository</code>, <code>@Service</code>, <code>@Controller</code>,
 <code>@Configuration</code>, or a custom annotation that itself is annotated with <code>@Component</code> are
@@ -8655,7 +8655,7 @@ annotated or meta-annotated with <code>@Component</code>, <code>@Repository</cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-factorybeans-annotations"><a class="anchor" href="#beans-factorybeans-annotations"></a>1.10.5. Defining Bean Metadata within Components</h4>
+<h4 id="beans-factorybeans-annotations"><a class="anchor" href="#beans-factorybeans-annotations"></a>1.10.5. 在组件中定义 Bean 元数据</h4>
 <div class="paragraph">
 <p>Spring components can also contribute bean definition metadata to the container. You can do
 this with the same <code>@Bean</code> annotation used to define bean metadata within <code>@Configuration</code>
@@ -8898,7 +8898,7 @@ analogous to how the container selects between multiple <code>@Autowired</code> 
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-scanning-name-generator"><a class="anchor" href="#beans-scanning-name-generator"></a>1.10.6. Naming Autodetected Components</h4>
+<h4 id="beans-scanning-name-generator"><a class="anchor" href="#beans-scanning-name-generator"></a>1.10.6. 命名自动检测的组件</h4>
 <div class="paragraph">
 <p>When a component is autodetected as part of the scanning process, its bean name is
 generated by the <code>BeanNameGenerator</code> strategy known to that scanner. By default, any
@@ -9008,7 +9008,7 @@ auto-generated names are adequate whenever the container is responsible for wiri
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-scanning-scope-resolver"><a class="anchor" href="#beans-scanning-scope-resolver"></a>1.10.7. Providing a Scope for Autodetected Components</h4>
+<h4 id="beans-scanning-scope-resolver"><a class="anchor" href="#beans-scanning-scope-resolver"></a>1.10.7. 提供自动检测组件的作用域</h4>
 <div class="paragraph">
 <p>As with Spring-managed components in general, the default and most common scope for
 autodetected components is <code>singleton</code>. However, sometimes you need a different scope
@@ -9052,7 +9052,7 @@ hierarchies at the class level are irrelevant for metadata purposes.
 </div>
 <div class="paragraph">
 <p>For details on web-specific scopes such as &#8220;request&#8221; or &#8220;session&#8221; in a Spring context,
-see <a href="#beans-factory-scopes-other">Request, Session, Application, and WebSocket Scopes</a>. As with the pre-built annotations for those scopes,
+see <a href="#beans-factory-scopes-other">请求、会话、应用程序与 WebSocket 作用域</a>. As with the pre-built annotations for those scopes,
 you may also compose your own scoping annotations by using Spring&#8217;s meta-annotation
 approach: for example, a custom annotation meta-annotated with <code>@Scope("prototype")</code>,
 possibly also declaring a custom scoped-proxy mode.</p>
@@ -9103,7 +9103,7 @@ class AppConfig {
 </div>
 <div class="paragraph">
 <p>When using certain non-singleton scopes, it may be necessary to generate proxies for the
-scoped objects. The reasoning is described in <a href="#beans-factory-scopes-other-injection">Scoped Beans as Dependencies</a>.
+scoped objects. The reasoning is described in <a href="#beans-factory-scopes-other-injection">限定作用域的 Bean 作为依赖</a>.
 For this purpose, a scoped-proxy attribute is available on the component-scan
 element. The three possible values are: <code>no</code>, <code>interfaces</code>, and <code>targetClass</code>. For example,
 the following configuration results in standard JDK dynamic proxies:</p>
@@ -9137,9 +9137,9 @@ class AppConfig {
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-scanning-qualifiers"><a class="anchor" href="#beans-scanning-qualifiers"></a>1.10.8. Providing Qualifier Metadata with Annotations</h4>
+<h4 id="beans-scanning-qualifiers"><a class="anchor" href="#beans-scanning-qualifiers"></a>1.10.8. 提供带注解的限定符元数据</h4>
 <div class="paragraph">
-<p>The <code>@Qualifier</code> annotation is discussed in <a href="#beans-autowired-annotation-qualifiers">Fine-tuning Annotation-based Autowiring with Qualifiers</a>.
+<p>The <code>@Qualifier</code> annotation is discussed in <a href="#beans-autowired-annotation-qualifiers">使用限定符对基于注解的自动装配进行微调</a>.
 The examples in that section demonstrate the use of the <code>@Qualifier</code> annotation and
 custom qualifier annotations to provide fine-grained control when you resolve autowire
 candidates. Because those examples were based on XML bean definitions, the qualifier
@@ -9224,7 +9224,7 @@ metadata is provided per-instance rather than per-class.
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-scanning-index"><a class="anchor" href="#beans-scanning-index"></a>1.10.9. Generating an Index of Candidate Components</h4>
+<h4 id="beans-scanning-index"><a class="anchor" href="#beans-scanning-index"></a>1.10.9. 生成候选组件的索引</h4>
 <div class="paragraph">
 <p>While classpath scanning is very fast, it is possible to improve the startup performance
 of large applications by creating a static list of candidates at compilation time. In this
@@ -9322,7 +9322,7 @@ arrangement (as though no index were present at all) by setting <code>spring.ind
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-standard-annotations"><a class="anchor" href="#beans-standard-annotations"></a>1.11. Using JSR 330 Standard Annotations</h3>
+<h3 id="beans-standard-annotations"><a class="anchor" href="#beans-standard-annotations"></a>1.11. 使用 JSR 330 标准注解</h3>
 <div class="paragraph">
 <p>Starting with Spring 3.0, Spring offers support for JSR-330 standard annotations
 (Dependency Injection). Those annotations are scanned in the same way as the Spring
@@ -9355,7 +9355,7 @@ You can add the following dependency to your file pom.xml:</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="beans-inject-named"><a class="anchor" href="#beans-inject-named"></a>1.11.1. Dependency Injection with <code>@Inject</code> and <code>@Named</code></h4>
+<h4 id="beans-inject-named"><a class="anchor" href="#beans-inject-named"></a>1.11.1. 使用 <code>@Inject</code> 与 <code>@Named</code> 进行依赖注入</h4>
 <div class="paragraph">
 <p>Instead of <code>@Autowired</code>, you can use <code>@javax.inject.Inject</code> as follows:</p>
 </div>
@@ -9528,7 +9528,7 @@ a <code>required</code> attribute. The following pair of examples show how to us
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-named"><a class="anchor" href="#beans-named"></a>1.11.2. <code>@Named</code> and <code>@ManagedBean</code>: Standard Equivalents to the <code>@Component</code> Annotation</h4>
+<h4 id="beans-named"><a class="anchor" href="#beans-named"></a>1.11.2. <code>@Named</code> 与 <code>@ManagedBean</code>：<code>@Component</code> 注解的的标准等效项</h4>
 <div class="paragraph">
 <p>Instead of <code>@Component</code>, you can use <code>@javax.inject.Named</code> or <code>javax.annotation.ManagedBean</code>,
 as the following example shows:</p>
@@ -9649,7 +9649,7 @@ custom component annotations.
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-standard-annotations-limitations"><a class="anchor" href="#beans-standard-annotations-limitations"></a>1.11.3. Limitations of JSR-330 Standard Annotations</h4>
+<h4 id="beans-standard-annotations-limitations"><a class="anchor" href="#beans-standard-annotations-limitations"></a>1.11.3. JSR-330 标准注解的局限性</h4>
 <div class="paragraph">
 <p>When you work with standard annotations, you should know that some significant
 features are not available, as the following table shows:</p>
@@ -9723,7 +9723,7 @@ features are not available, as the following table shows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-java"><a class="anchor" href="#beans-java"></a>1.12. Java-based Container Configuration</h3>
+<h3 id="beans-java"><a class="anchor" href="#beans-java"></a>1.12. 基于 Java 的容器配置</h3>
 <div class="paragraph">
 <p>This section covers how to use annotations in your Java code to configure the Spring
 container. It includes the following topics:</p>
@@ -9731,36 +9731,36 @@ container. It includes the following topics:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#beans-java-basic-concepts">Basic Concepts: <code>@Bean</code> and <code>@Configuration</code></a></p>
+<p><a href="#beans-java-basic-concepts">基本概念：<code>@Bean</code> 与 <code>@Configuration</code></a></p>
 </li>
 <li>
-<p><a href="#beans-java-instantiating-container">Instantiating the Spring Container by Using <code>AnnotationConfigApplicationContext</code></a></p>
+<p><a href="#beans-java-instantiating-container">使用 <code>AnnotationConfigApplicationContext</code> 实例化 Spring 容器</a></p>
 </li>
 <li>
-<p><a href="#beans-java-bean-annotation">Using the <code>@Bean</code> Annotation</a></p>
+<p><a href="#beans-java-bean-annotation">使用 <code>@Bean</code> 注解</a></p>
 </li>
 <li>
-<p><a href="#beans-java-configuration-annotation">Using the <code>@Configuration</code> annotation</a></p>
+<p><a href="#beans-java-configuration-annotation">使用 <code>@Configuration</code> 注解</a></p>
 </li>
 <li>
-<p><a href="#beans-java-composing-configuration-classes">Composing Java-based Configurations</a></p>
+<p><a href="#beans-java-composing-configuration-classes">编写基于 Java 的配置</a></p>
 </li>
 <li>
-<p><a href="#beans-definition-profiles">Bean Definition Profiles</a></p>
+<p><a href="#beans-definition-profiles">Bean 定义配置文件</a></p>
 </li>
 <li>
-<p><a href="#beans-property-source-abstraction"><code>PropertySource</code> Abstraction</a></p>
+<p><a href="#beans-property-source-abstraction"><code>PropertySource</code> 抽象</a></p>
 </li>
 <li>
-<p><a href="#beans-using-propertysource">Using <code>@PropertySource</code></a></p>
+<p><a href="#beans-using-propertysource">使用 <code>@PropertySource</code></a></p>
 </li>
 <li>
-<p><a href="#beans-placeholder-resolution-in-statements">Placeholder Resolution in Statements</a></p>
+<p><a href="#beans-placeholder-resolution-in-statements">语句中的占位符解析</a></p>
 </li>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="beans-java-basic-concepts"><a class="anchor" href="#beans-java-basic-concepts"></a>1.12.1. Basic Concepts: <code>@Bean</code> and <code>@Configuration</code></h4>
+<h4 id="beans-java-basic-concepts"><a class="anchor" href="#beans-java-basic-concepts"></a>1.12.1. 基本概念：<code>@Bean</code> 与 <code>@Configuration</code></h4>
 <div class="paragraph">
 <p>The central artifacts in Spring&#8217;s new Java-configuration support are
 <code>@Configuration</code>-annotated classes and <code>@Bean</code>-annotated methods.</p>
@@ -9851,7 +9851,7 @@ Java-based configuration.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-java-instantiating-container"><a class="anchor" href="#beans-java-instantiating-container"></a>1.12.2. Instantiating the Spring Container by Using <code>AnnotationConfigApplicationContext</code></h4>
+<h4 id="beans-java-instantiating-container"><a class="anchor" href="#beans-java-instantiating-container"></a>1.12.2. 使用 <code>AnnotationConfigApplicationContext</code> 实例化 Spring 容器</h4>
 <div class="paragraph">
 <p>The following sections document Spring&#8217;s <code>AnnotationConfigApplicationContext</code>, introduced in Spring
 3.0. This versatile <code>ApplicationContext</code> implementation is capable of accepting not only
@@ -9869,7 +9869,7 @@ definitions, and it is assumed that DI metadata such as <code>@Autowired</code> 
 used within those classes where necessary.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-java-instantiating-container-constructor"><a class="anchor" href="#beans-java-instantiating-container-constructor"></a>Simple Construction</h5>
+<h5 id="beans-java-instantiating-container-constructor"><a class="anchor" href="#beans-java-instantiating-container-constructor"></a>简单构造</h5>
 <div class="paragraph">
 <p>In much the same way that Spring XML files are used as input when instantiating a
 <code>ClassPathXmlApplicationContext</code>, you can use <code>@Configuration</code> classes as input when
@@ -9931,7 +9931,7 @@ dependency injection annotations such as <code>@Autowired</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-instantiating-container-register"><a class="anchor" href="#beans-java-instantiating-container-register"></a>Building the Container Programmatically by Using <code>register(Class&lt;?&gt;&#8230;&#8203;)</code></h5>
+<h5 id="beans-java-instantiating-container-register"><a class="anchor" href="#beans-java-instantiating-container-register"></a>通过使用 <code>register(Class&lt;?&gt;&#8230;&#8203;)</code> 以编程方式构建容器</h5>
 <div class="paragraph">
 <p>You can instantiate an <code>AnnotationConfigApplicationContext</code> by using a no-arg constructor
 and then configure it by using the <code>register()</code> method. This approach is particularly useful
@@ -9968,7 +9968,7 @@ fun main() {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-instantiating-container-scan"><a class="anchor" href="#beans-java-instantiating-container-scan"></a>Enabling Component Scanning with <code>scan(String&#8230;&#8203;)</code></h5>
+<h5 id="beans-java-instantiating-container-scan"><a class="anchor" href="#beans-java-instantiating-container-scan"></a>使用 <code>scan(String&#8230;&#8203;)</code> 启用组件扫描</h5>
 <div class="paragraph">
 <p>To enable component scanning, you can annotate your <code>@Configuration</code> class as follows:</p>
 </div>
@@ -10077,7 +10077,7 @@ methods are processed and registered as bean definitions within the container.
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-instantiating-container-web"><a class="anchor" href="#beans-java-instantiating-container-web"></a>Support for Web Applications with <code>AnnotationConfigWebApplicationContext</code></h5>
+<h5 id="beans-java-instantiating-container-web"><a class="anchor" href="#beans-java-instantiating-container-web"></a>支持 Web 应用程序与 <code>AnnotationConfigWebApplicationContext</code></h5>
 <div class="paragraph">
 <p>A <code>WebApplicationContext</code> variant of <code>AnnotationConfigApplicationContext</code> is available
 with <code>AnnotationConfigWebApplicationContext</code>. You can use this implementation when
@@ -10142,7 +10142,7 @@ init-param):</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-java-bean-annotation"><a class="anchor" href="#beans-java-bean-annotation"></a>1.12.3. Using the <code>@Bean</code> Annotation</h4>
+<h4 id="beans-java-bean-annotation"><a class="anchor" href="#beans-java-bean-annotation"></a>1.12.3. 使用 <code>@Bean</code> 注解</h4>
 <div class="paragraph">
 <p><code>@Bean</code> is a method-level annotation and a direct analog of the XML <code>&lt;bean/&gt;</code> element.
 The annotation supports some of the attributes offered by <code>&lt;bean/&gt;</code>, such as:
@@ -10156,7 +10156,7 @@ The annotation supports some of the attributes offered by <code>&lt;bean/&gt;</c
 <code>@Component</code>-annotated class.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-java-declaring-a-bean"><a class="anchor" href="#beans-java-declaring-a-bean"></a>Declaring a Bean</h5>
+<h5 id="beans-java-declaring-a-bean"><a class="anchor" href="#beans-java-declaring-a-bean"></a>声明 Bean</h5>
 <div class="paragraph">
 <p>To declare a bean, you can annotate a method with the <code>@Bean</code> annotation. You use this
 method to register a bean definition within an <code>ApplicationContext</code> of the type
@@ -10264,7 +10264,7 @@ implementation type, it is safer to declare the most specific return type possib
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-dependencies"><a class="anchor" href="#beans-java-dependencies"></a>Bean Dependencies</h5>
+<h5 id="beans-java-dependencies"><a class="anchor" href="#beans-java-dependencies"></a>Bean 依赖</h5>
 <div class="paragraph">
 <p>A <code>@Bean</code>-annotated method can have an arbitrary number of parameters that describe the
 dependencies required to build that bean. For instance, if our <code>TransferService</code>
@@ -10303,7 +10303,7 @@ injection. See <a href="#beans-constructor-injection">the relevant section</a> f
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-lifecycle-callbacks"><a class="anchor" href="#beans-java-lifecycle-callbacks"></a>Receiving Lifecycle Callbacks</h5>
+<h5 id="beans-java-lifecycle-callbacks"><a class="anchor" href="#beans-java-lifecycle-callbacks"></a>接受生命周期回调</h5>
 <div class="paragraph">
 <p>Any classes defined with the <code>@Bean</code> annotation support the regular lifecycle callbacks
 and can use the <code>@PostConstruct</code> and <code>@PreDestroy</code> annotations from JSR-250. See
@@ -10490,12 +10490,12 @@ not always need to rely on the container lifecycle.
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-specifying-bean-scope"><a class="anchor" href="#beans-java-specifying-bean-scope"></a>Specifying Bean Scope</h5>
+<h5 id="beans-java-specifying-bean-scope"><a class="anchor" href="#beans-java-specifying-bean-scope"></a>指定 Bean 作用域</h5>
 <div class="paragraph">
 <p>Spring includes the <code>@Scope</code> annotation so that you can specify the scope of a bean.</p>
 </div>
 <div class="sect5">
-<h6 id="beans-java-available-scopes"><a class="anchor" href="#beans-java-available-scopes"></a>Using the <code>@Scope</code> Annotation</h6>
+<h6 id="beans-java-available-scopes"><a class="anchor" href="#beans-java-available-scopes"></a>使用 <code>@Scope</code> 注解</h6>
 <div class="paragraph">
 <p>You can specify that your beans defined with the <code>@Bean</code> annotation should have a
 specific scope. You can use any of the standard scopes specified in the
@@ -10535,7 +10535,7 @@ class MyConfiguration {
 </div>
 </div>
 <div class="sect5">
-<h6 id="beans-java-scoped-proxy"><a class="anchor" href="#beans-java-scoped-proxy"></a><code>@Scope</code> and <code>scoped-proxy</code></h6>
+<h6 id="beans-java-scoped-proxy"><a class="anchor" href="#beans-java-scoped-proxy"></a><code>@Scope</code> 与 <code>scoped-proxy</code></h6>
 <div class="paragraph">
 <p>Spring offers a convenient way of working with scoped dependencies through
 <a href="#beans-factory-scopes-other-injection">scoped proxies</a>. The easiest way to create
@@ -10588,7 +10588,7 @@ fun userService(): Service {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-customizing-bean-naming"><a class="anchor" href="#beans-java-customizing-bean-naming"></a>Customizing Bean Naming</h5>
+<h5 id="beans-java-customizing-bean-naming"><a class="anchor" href="#beans-java-customizing-bean-naming"></a>自定义 Bean 名称</h5>
 <div class="paragraph">
 <p>By default, configuration classes use a <code>@Bean</code> method&#8217;s name as the name of the
 resulting bean. This functionality can be overridden, however, with the <code>name</code> attribute,
@@ -10620,9 +10620,9 @@ class AppConfig {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-bean-aliasing"><a class="anchor" href="#beans-java-bean-aliasing"></a>Bean Aliasing</h5>
+<h5 id="beans-java-bean-aliasing"><a class="anchor" href="#beans-java-bean-aliasing"></a>Bean 混淆</h5>
 <div class="paragraph">
-<p>As discussed in <a href="#beans-beanname">Naming Beans</a>, it is sometimes desirable to give a single bean
+<p>As discussed in <a href="#beans-beanname">命名 Bean</a>, it is sometimes desirable to give a single bean
 multiple names, otherwise known as bean aliasing. The <code>name</code> attribute of the <code>@Bean</code>
 annotation accepts a String array for this purpose. The following example shows how to set
 a number of aliases for a bean:</p>
@@ -10655,7 +10655,7 @@ class AppConfig {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-bean-description"><a class="anchor" href="#beans-java-bean-description"></a>Bean Description</h5>
+<h5 id="beans-java-bean-description"><a class="anchor" href="#beans-java-bean-description"></a>Bean 描述</h5>
 <div class="paragraph">
 <p>Sometimes, it is helpful to provide a more detailed textual description of a bean. This can
 be particularly useful when beans are exposed (perhaps through JMX) for monitoring purposes.</p>
@@ -10694,15 +10694,15 @@ class AppConfig {
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-java-configuration-annotation"><a class="anchor" href="#beans-java-configuration-annotation"></a>1.12.4. Using the <code>@Configuration</code> annotation</h4>
+<h4 id="beans-java-configuration-annotation"><a class="anchor" href="#beans-java-configuration-annotation"></a>1.12.4. 使用 <code>@Configuration</code> 注解</h4>
 <div class="paragraph">
 <p><code>@Configuration</code> is a class-level annotation indicating that an object is a source of
 bean definitions. <code>@Configuration</code> classes declare beans through public <code>@Bean</code> annotated
 methods. Calls to <code>@Bean</code> methods on <code>@Configuration</code> classes can also be used to define
-inter-bean dependencies. See <a href="#beans-java-basic-concepts">Basic Concepts: <code>@Bean</code> and <code>@Configuration</code></a> for a general introduction.</p>
+inter-bean dependencies. See <a href="#beans-java-basic-concepts">基本概念：<code>@Bean</code> 与 <code>@Configuration</code></a> for a general introduction.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-java-injecting-dependencies"><a class="anchor" href="#beans-java-injecting-dependencies"></a>Injecting Inter-bean Dependencies</h5>
+<h5 id="beans-java-injecting-dependencies"><a class="anchor" href="#beans-java-injecting-dependencies"></a>注入 Inter-bean 依赖</h5>
 <div class="paragraph">
 <p>When beans have dependencies on one another, expressing that dependency is as simple
 as having one bean method call another, as the following example shows:</p>
@@ -10759,7 +10759,7 @@ by using plain <code>@Component</code> classes.
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-method-injection"><a class="anchor" href="#beans-java-method-injection"></a>Lookup Method Injection</h5>
+<h5 id="beans-java-method-injection"><a class="anchor" href="#beans-java-method-injection"></a>查找方法注入</h5>
 <div class="paragraph">
 <p>As noted earlier, <a href="#beans-factory-method-injection">lookup method injection</a> is an
 advanced feature that you should use rarely. It is useful in cases where a
@@ -10854,7 +10854,7 @@ fun commandManager(): CommandManager {
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-further-information-java-config"><a class="anchor" href="#beans-java-further-information-java-config"></a>Further Information About How Java-based Configuration Works Internally</h5>
+<h5 id="beans-java-further-information-java-config"><a class="anchor" href="#beans-java-further-information-java-config"></a>关于 Java 的配置如何在内部工作的更多信息</h5>
 <div class="paragraph">
 <p>Consider the following example, which shows a <code>@Bean</code> annotated method being called twice:</p>
 </div>
@@ -10976,13 +10976,13 @@ to exclusively rely on dependency injection at the constructor or method level t
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-java-composing-configuration-classes"><a class="anchor" href="#beans-java-composing-configuration-classes"></a>1.12.5. Composing Java-based Configurations</h4>
+<h4 id="beans-java-composing-configuration-classes"><a class="anchor" href="#beans-java-composing-configuration-classes"></a>1.12.5. 编写基于 Java 的配置</h4>
 <div class="paragraph">
 <p>Spring&#8217;s Java-based configuration feature lets you compose annotations, which can reduce
 the complexity of your configuration.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-java-using-import"><a class="anchor" href="#beans-java-using-import"></a>Using the <code>@Import</code> Annotation</h5>
+<h5 id="beans-java-using-import"><a class="anchor" href="#beans-java-using-import"></a>使用 <code>@Import</code> 注解</h5>
 <div class="paragraph">
 <p>Much as the <code>&lt;import/&gt;</code> element is used within Spring XML files to aid in modularizing
 configurations, the <code>@Import</code> annotation allows for loading <code>@Bean</code> definitions from
@@ -11082,7 +11082,7 @@ configuration classes as entry points to explicitly define all your components.
 </table>
 </div>
 <div class="sect5">
-<h6 id="beans-java-injecting-imported-beans"><a class="anchor" href="#beans-java-injecting-imported-beans"></a>Injecting Dependencies on Imported <code>@Bean</code> Definitions</h6>
+<h6 id="beans-java-injecting-imported-beans"><a class="anchor" href="#beans-java-injecting-imported-beans"></a>有条件地包含 <code>@Configuration</code> 类或 <code>@Bean</code> 方法</h6>
 <div class="paragraph">
 <p>The preceding example works but is simplistic. In most practical scenarios, beans have
 dependencies on one another across configuration classes. When using XML, this is not an
@@ -11507,7 +11507,7 @@ created before the current bean, beyond what the latter&#8217;s direct dependenc
 <p>It is often useful to conditionally enable or disable a complete <code>@Configuration</code> class
 or even individual <code>@Bean</code> methods, based on some arbitrary system state. One common
 example of this is to use the <code>@Profile</code> annotation to activate beans only when a specific
-profile has been enabled in the Spring <code>Environment</code> (see <a href="#beans-definition-profiles">Bean Definition Profiles</a>
+profile has been enabled in the Spring <code>Environment</code> (see <a href="#beans-definition-profiles">Bean 定义配置文件</a>
 for details).</p>
 </div>
 <div class="paragraph">
@@ -11565,7 +11565,7 @@ javadoc for more detail.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-java-combining"><a class="anchor" href="#beans-java-combining"></a>Combining Java and XML Configuration</h5>
+<h5 id="beans-java-combining"><a class="anchor" href="#beans-java-combining"></a>结合 Java 与 XML 配置</h5>
 <div class="paragraph">
 <p>Spring&#8217;s <code>@Configuration</code> class support does not aim to be a 100% complete replacement
 for Spring XML. Some facilities, such as Spring XML namespaces, remain an ideal way to
@@ -11839,7 +11839,7 @@ fun main() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-environment"><a class="anchor" href="#beans-environment"></a>1.13. Environment Abstraction</h3>
+<h3 id="beans-environment"><a class="anchor" href="#beans-environment"></a>1.13. 环境抽象</h3>
 <div class="paragraph">
 <p>The <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/core/env/Environment.html"><code>Environment</code></a> interface
 is an abstraction integrated in the container that models two key
@@ -11862,7 +11862,7 @@ user with a convenient service interface for configuring property sources and re
 properties from them.</p>
 </div>
 <div class="sect3">
-<h4 id="beans-definition-profiles"><a class="anchor" href="#beans-definition-profiles"></a>1.13.1. Bean Definition Profiles</h4>
+<h4 id="beans-definition-profiles"><a class="anchor" href="#beans-definition-profiles"></a>1.13.1. Bean 定义配置文件</h4>
 <div class="paragraph">
 <p>Bean definition profiles provide a mechanism in the core container that allows for
 registration of different beans in different environments. The word, &#8220;environment,&#8221;
@@ -11958,7 +11958,7 @@ certain profile of bean definitions in situation A and a different profile in
 situation B. We start by updating our configuration to reflect this need.</p>
 </div>
 <div class="sect4">
-<h5 id="beans-definition-profiles-java"><a class="anchor" href="#beans-definition-profiles-java"></a>Using <code>@Profile</code></h5>
+<h5 id="beans-definition-profiles-java"><a class="anchor" href="#beans-definition-profiles-java"></a>使用 <code>@Profile</code></h5>
 <div class="paragraph">
 <p>The <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/annotation/Profile.html"><code>@Profile</code></a>
 annotation lets you indicate that a component is eligible for registration
@@ -12231,7 +12231,7 @@ way to represent such an arrangement in a valid Java class in the first place
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-definition-profiles-xml"><a class="anchor" href="#beans-definition-profiles-xml"></a>XML Bean Definition Profiles</h5>
+<h5 id="beans-definition-profiles-xml"><a class="anchor" href="#beans-definition-profiles-xml"></a>XML Bean 定义配置文件</h5>
 <div class="paragraph">
 <p>The XML counterpart is the <code>profile</code> attribute of the <code>&lt;beans&gt;</code> element. Our preceding sample
 configuration can be rewritten in two XML files, as follows:</p>
@@ -12335,7 +12335,7 @@ however, to negate a profile by using the <code>!</code> operator. It is also po
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-definition-profiles-enable"><a class="anchor" href="#beans-definition-profiles-enable"></a>Activating a Profile</h5>
+<h5 id="beans-definition-profiles-enable"><a class="anchor" href="#beans-definition-profiles-enable"></a>激活配置文件</h5>
 <div class="paragraph">
 <p>Now that we have updated our configuration, we still need to instruct Spring which
 profile is active. If we started our sample application right now, we would see
@@ -12370,7 +12370,7 @@ ctx.refresh();</code></pre>
 <p>In addition, you can also declaratively activate profiles through the
 <code>spring.profiles.active</code> property, which may be specified through system environment
 variables, JVM system properties, servlet context parameters in <code>web.xml</code>, or even as an
-entry in JNDI (see <a href="#beans-property-source-abstraction"><code>PropertySource</code> Abstraction</a>). In integration tests, active
+entry in JNDI (see <a href="#beans-property-source-abstraction"><code>PropertySource</code> 抽象</a>). In integration tests, active
 profiles can be declared by using the <code>@ActiveProfiles</code> annotation in the <code>spring-test</code>
 module (see <a href="testing.html#testcontext-ctx-management-env-profiles">context configuration with environment profiles</a>).</p>
 </div>
@@ -12403,7 +12403,7 @@ as the following example shows:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="beans-definition-profiles-default"><a class="anchor" href="#beans-definition-profiles-default"></a>Default Profile</h5>
+<h5 id="beans-definition-profiles-default"><a class="anchor" href="#beans-definition-profiles-default"></a>默认配置文件</h5>
 <div class="paragraph">
 <p>The default profile represents the profile that is enabled by default. Consider the
 following example:</p>
@@ -12454,7 +12454,7 @@ the <code>Environment</code> or ,declaratively, by using the <code>spring.profil
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-property-source-abstraction"><a class="anchor" href="#beans-property-source-abstraction"></a>1.13.2. <code>PropertySource</code> Abstraction</h4>
+<h4 id="beans-property-source-abstraction"><a class="anchor" href="#beans-property-source-abstraction"></a>1.13.2. <code>PropertySource</code> 抽象</h4>
 <div class="paragraph">
 <p>Spring&#8217;s <code>Environment</code> abstraction provides search operations over a configurable
 hierarchy of property sources. Consider the following listing:</p>
@@ -12581,7 +12581,7 @@ property sources.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-using-propertysource"><a class="anchor" href="#beans-using-propertysource"></a>1.13.3. Using <code>@PropertySource</code></h4>
+<h4 id="beans-using-propertysource"><a class="anchor" href="#beans-using-propertysource"></a>1.13.3. 使用 <code>@PropertySource</code></h4>
 <div class="paragraph">
 <p>The <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/annotation/PropertySource.html"><code>@PropertySource</code></a>
 annotation provides a convenient and declarative mechanism for adding a <code>PropertySource</code>
@@ -12694,7 +12694,7 @@ recommended, since direct annotations effectively override meta-annotations.
 </div>
 </div>
 <div class="sect3">
-<h4 id="beans-placeholder-resolution-in-statements"><a class="anchor" href="#beans-placeholder-resolution-in-statements"></a>1.13.4. Placeholder Resolution in Statements</h4>
+<h4 id="beans-placeholder-resolution-in-statements"><a class="anchor" href="#beans-placeholder-resolution-in-statements"></a>1.13.4. 语句中的占位符解析</h4>
 <div class="paragraph">
 <p>Historically, the value of placeholders in elements could be resolved only against
 JVM system properties or environment variables. This is no longer the case. Because
@@ -12718,7 +12718,7 @@ property is defined, as long as it is available in the <code>Environment</code>:
 </div>
 </div>
 <div class="sect2">
-<h3 id="context-load-time-weaver"><a class="anchor" href="#context-load-time-weaver"></a>1.14. Registering a <code>LoadTimeWeaver</code></h3>
+<h3 id="context-load-time-weaver"><a class="anchor" href="#context-load-time-weaver"></a>1.14. 注册 <code>LoadTimeWeaver</code></h3>
 <div class="paragraph">
 <p>The <code>LoadTimeWeaver</code> is used by Spring to dynamically transform classes as they are
 loaded into the Java virtual machine (JVM).</p>
@@ -12766,7 +12766,7 @@ javadoc for more detail. For more on AspectJ load-time weaving, see <a href="#ao
 </div>
 </div>
 <div class="sect2">
-<h3 id="context-introduction"><a class="anchor" href="#context-introduction"></a>1.15. Additional Capabilities of the <code>ApplicationContext</code></h3>
+<h3 id="context-introduction"><a class="anchor" href="#context-introduction"></a>1.15. <code>ApplicationContext</code> 的附加功能</h3>
 <div class="paragraph">
 <p>As discussed in the <a href="#beans">chapter introduction</a>, the <code>org.springframework.beans.factory</code>
 package provides basic functionality for managing and manipulating beans, including in a
@@ -12803,7 +12803,7 @@ particular layer, such as the web layer of an application, through the
 </ul>
 </div>
 <div class="sect3">
-<h4 id="context-functionality-messagesource"><a class="anchor" href="#context-functionality-messagesource"></a>1.15.1. Internationalization using <code>MessageSource</code></h4>
+<h4 id="context-functionality-messagesource"><a class="anchor" href="#context-functionality-messagesource"></a>1.15.1. 使用 <code>MessageSource</code> 国际化</h4>
 <div class="paragraph">
 <p>The <code>ApplicationContext</code> interface extends an interface called <code>MessageSource</code> and,
 therefore, provides internationalization (&#8220;i18n&#8221;) functionality. Spring also provides the
@@ -13063,7 +13063,7 @@ javadoc for details.
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-functionality-events"><a class="anchor" href="#context-functionality-events"></a>1.15.2. Standard and Custom Events</h4>
+<h4 id="context-functionality-events"><a class="anchor" href="#context-functionality-events"></a>1.15.2. 标准事件与自定义事件</h4>
 <div class="paragraph">
 <p>Event handling in the <code>ApplicationContext</code> is provided through the <code>ApplicationEvent</code>
 class and the <code>ApplicationListener</code> interface. If a bean that implements the
@@ -13341,7 +13341,7 @@ architectures that build upon the well-known Spring programming model.
 </table>
 </div>
 <div class="sect4">
-<h5 id="context-functionality-events-annotation"><a class="anchor" href="#context-functionality-events-annotation"></a>Annotation-based Event Listeners</h5>
+<h5 id="context-functionality-events-annotation"><a class="anchor" href="#context-functionality-events-annotation"></a>基于注解的事件监听器</h5>
 <div class="paragraph">
 <p>As of Spring 4.2, you can register an event listener on any public method of a managed
 bean by using the <code>@EventListener</code> annotation. The <code>BlockedListNotifier</code> can be rewritten as
@@ -13527,7 +13527,7 @@ instead.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="context-functionality-events-async"><a class="anchor" href="#context-functionality-events-async"></a>Asynchronous Listeners</h5>
+<h5 id="context-functionality-events-async"><a class="anchor" href="#context-functionality-events-async"></a>异步的监听器</h5>
 <div class="paragraph">
 <p>If you want a particular listener to process events asynchronously, you can reuse the
 <a href="integration.html#scheduling-annotation-support-async">regular <code>@Async</code> support</a>.
@@ -13572,7 +13572,7 @@ to publish the event manually.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="context-functionality-events-order"><a class="anchor" href="#context-functionality-events-order"></a>Ordering Listeners</h5>
+<h5 id="context-functionality-events-order"><a class="anchor" href="#context-functionality-events-order"></a>订阅的监听器</h5>
 <div class="paragraph">
 <p>If you need one listener to be invoked before another one, you can add the <code>@Order</code>
 annotation to the method declaration, as the following example shows:</p>
@@ -13599,7 +13599,7 @@ fun processBlockedListEvent(event: BlockedListEvent) {
 </div>
 </div>
 <div class="sect4">
-<h5 id="context-functionality-events-generics"><a class="anchor" href="#context-functionality-events-generics"></a>Generic Events</h5>
+<h5 id="context-functionality-events-generics"><a class="anchor" href="#context-functionality-events-generics"></a>通用事件</h5>
 <div class="paragraph">
 <p>You can also use generics to further define the structure of your event. Consider using an
 <code>EntityCreatedEvent&lt;T&gt;</code> where <code>T</code> is the type of the actual entity that got created. For example, you
@@ -13678,7 +13678,7 @@ an event.
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-functionality-resources"><a class="anchor" href="#context-functionality-resources"></a>1.15.3. Convenient Access to Low-level Resources</h4>
+<h4 id="context-functionality-resources"><a class="anchor" href="#context-functionality-resources"></a>1.15.3. 方便地访问低级资源</h4>
 <div class="paragraph">
 <p>For optimal usage and understanding of application contexts, you should familiarize
 yourself with Spring&#8217;s <code>Resource</code> abstraction, as described in <a href="#resources">Resources</a>.</p>
@@ -13712,7 +13712,7 @@ regardless of the actual context type.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-functionality-startup"><a class="anchor" href="#context-functionality-startup"></a>1.15.4. Application Startup tracking</h4>
+<h4 id="context-functionality-startup"><a class="anchor" href="#context-functionality-startup"></a>1.15.4. 应用程序启动跟踪</h4>
 <div class="paragraph">
 <p>The <code>ApplicationContext</code> manages the lifecycle of Spring applications and provides a rich
 programming model around components. As a result, complex applications can have equally
@@ -13820,7 +13820,7 @@ This namespace is reserved for internal Spring usage and is subject to change.
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-create"><a class="anchor" href="#context-create"></a>1.15.5. Convenient ApplicationContext Instantiation for Web Applications</h4>
+<h4 id="context-create"><a class="anchor" href="#context-create"></a>1.15.5. 方便的 Web 应用程序的 ApplicationContext 实例化</h4>
 <div class="paragraph">
 <p>You can create <code>ApplicationContext</code> instances declaratively by using, for example, a
 <code>ContextLoader</code>. Of course, you can also create <code>ApplicationContext</code> instances
@@ -13854,7 +13854,7 @@ Examples are <code>/WEB-INF/*Context.xml</code> (for all files with names that e
 </div>
 </div>
 <div class="sect3">
-<h4 id="context-deploy-rar"><a class="anchor" href="#context-deploy-rar"></a>1.15.6. Deploying a Spring <code>ApplicationContext</code> as a Java EE RAR File</h4>
+<h4 id="context-deploy-rar"><a class="anchor" href="#context-deploy-rar"></a>1.15.6. 将Spring <code>ApplicationContext</code> 部署为 Java EE RAR 文件</h4>
 <div class="paragraph">
 <p>It is possible to deploy a Spring <code>ApplicationContext</code> as a RAR file, encapsulating the
 context and all of its required bean classes and library JARs in a Java EE RAR deployment
@@ -13920,7 +13920,7 @@ by other application modules on the same machine.
 </div>
 </div>
 <div class="sect2">
-<h3 id="beans-beanfactory"><a class="anchor" href="#beans-beanfactory"></a>1.16. The <code>BeanFactory</code></h3>
+<h3 id="beans-beanfactory"><a class="anchor" href="#beans-beanfactory"></a>1.16. <code>BeanFactory</code></h3>
 <div class="paragraph">
 <p>The <code>BeanFactory</code> API provides the underlying basis for Spring&#8217;s IoC functionality.
 Its specific contracts are mostly used in integration with other parts of Spring and
@@ -13944,7 +13944,7 @@ operate on shared <code>BeanDefinition</code> objects as a core metadata represe
 This is the essence of what makes Spring&#8217;s container so flexible and extensible.</p>
 </div>
 <div class="sect3">
-<h4 id="context-introduction-ctx-vs-beanfactory"><a class="anchor" href="#context-introduction-ctx-vs-beanfactory"></a>1.16.1. <code>BeanFactory</code> or <code>ApplicationContext</code>?</h4>
+<h4 id="context-introduction-ctx-vs-beanfactory"><a class="anchor" href="#context-introduction-ctx-vs-beanfactory"></a>1.16.1. <code>BeanFactory</code> 或 <code>ApplicationContext</code>？</h4>
 <div class="paragraph">
 <p>This section explains the differences between the <code>BeanFactory</code> and
 <code>ApplicationContext</code> container levels and the implications on bootstrapping.</p>
@@ -14654,14 +14654,14 @@ interface (which can be considered a utility interface) and not to the whole Spr
 <div class="paragraph">
 <p>In application components, you may also rely upon autowiring of the <code>ResourceLoader</code> as
 an alternative to implementing the <code>ResourceLoaderAware</code> interface. The <em>traditional</em>
-<code>constructor</code> and <code>byType</code> autowiring modes (as described in <a href="#beans-factory-autowire">Autowiring Collaborators</a>)
+<code>constructor</code> and <code>byType</code> autowiring modes (as described in <a href="#beans-factory-autowire">自动装配合作者</a>)
 are capable of providing a <code>ResourceLoader</code> for either a constructor argument or a
 setter method parameter, respectively. For more flexibility (including the ability to
 autowire fields and multiple parameter methods), consider using the annotation-based
 autowiring features. In that case, the <code>ResourceLoader</code> is autowired into a field,
 constructor argument, or method parameter that expects the <code>ResourceLoader</code> type as long
 as the field, constructor, or method in question carries the <code>@Autowired</code> annotation.
-For more information, see <a href="#beans-autowired-annotation">Using <code>@Autowired</code></a>.</p>
+For more information, see <a href="#beans-autowired-annotation">使用 <code>@Autowired</code></a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -14755,8 +14755,8 @@ latter being used to access a file in the filesystem):</p>
 <p>If the <code>MyBean</code> class is refactored for use with annotation-driven configuration, the
 path to <code>myTemplate.txt</code> can be stored under a key named <code>template.path</code>&#8201;&#8212;&#8201;for example,
 in a properties file made available to the Spring <code>Environment</code> (see
-<a href="#beans-environment">Environment Abstraction</a>). The template path can then be referenced via the <code>@Value</code>
-annotation using a property placeholder (see <a href="#beans-value-annotations">Using <code>@Value</code></a>). Spring will
+<a href="#beans-environment">环境抽象</a>). The template path can then be referenced via the <code>@Value</code>
+annotation using a property placeholder (see <a href="#beans-value-annotations">使用 <code>@Value</code></a>). Spring will
 retrieve the value of the template path as a string, and a special <code>PropertyEditor</code> will
 convert the string to a <code>Resource</code> object to be injected into the <code>MyBean</code> constructor.
 The following example demonstrates how to achieve this.</p>
@@ -23888,7 +23888,7 @@ annotation. You can specify either <code>@Configurable(autowire=Autowire.BY_TYPE
 <code>@Configurable(autowire=Autowire.BY_NAME)</code> for autowiring by type or by name,
 respectively. As an alternative, it is preferable to specify explicit, annotation-driven
 dependency injection for your <code>@Configurable</code> beans through <code>@Autowired</code> or <code>@Inject</code>
-at the field or method level (see <a href="#beans-annotation-config">Annotation-based Container Configuration</a> for further details).</p>
+at the field or method level (see <a href="#beans-annotation-config">基于注解的容器配置</a> for further details).</p>
 </div>
 <div class="paragraph">
 <p>Finally, you can enable Spring dependency checking for the object references in the newly
@@ -29223,7 +29223,7 @@ its behavior changes.
 <div id="footer">
 <div id="footer-text">
 Version 5.3.5-SNAPSHOT<br>
-Last updated 2021-02-27 18:26:04 +0800
+Last updated 2021-03-08 14:45:34 +0800
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/googlecode.min.css">
