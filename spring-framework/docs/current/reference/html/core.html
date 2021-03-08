@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +41,8 @@
 
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+<style>
+
 .hidden {
 	display: none;
 }
@@ -70,10 +71,14 @@
 .switch--item.selected {
 	background-color: #7a2519;
 	color: #ffffff;
-}
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-<script type="text/javascript">
+}
+
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+
+<script type="text/javascript">
+
 function addBlockSwitches() {
 	$('.primary').each(function() {
 		primary = $(this);
@@ -152,8 +157,10 @@ function select(selected) {
 
 $(addBlockSwitches);
 $(globalSwitch);
-
-</script>
+
+
+</script>
+
 
 </head>
 <body id="spring-core" class="book toc2 toc-left">
@@ -820,118 +827,118 @@ Spring 框架拥有自己的 AOP 框架，
 <h2 id="beans"><a class="anchor" href="#beans"></a>1. IoC 容器</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This chapter covers Spring&#8217;s Inversion of Control (IoC) container.</p>
+<p>本章介绍 Spring 的控制反转(IoC)容器。</p>
 </div>
 <div class="sect2">
 <h3 id="beans-introduction"><a class="anchor" href="#beans-introduction"></a>1.1. Spring IoC 容器与 Bean 简介</h3>
 <div class="paragraph">
-<p>This chapter covers the Spring Framework implementation of the Inversion of Control
-(IoC) principle. IoC is also known as dependency injection (DI). It is a process whereby
-objects define their dependencies (that is, the other objects they work with) only through
-constructor arguments, arguments to a factory method, or properties that are set on the
-object instance after it is constructed or returned from a factory method. The container
-then injects those dependencies when it creates the bean. This process is fundamentally
-the inverse (hence the name, Inversion of Control) of the bean itself
-controlling the instantiation or location of its dependencies by using direct
-construction of classes or a mechanism such as the Service Locator pattern.</p>
+<p>本章介绍了控制反转（IoC）原理的 Spring 框架实现。
+IoC 也称为依赖注入（DI）。
+在此过程中，对象仅通过构造函数参数，
+工厂方法的参数或在构造或从工厂方法返回后在对象实例上设置的属性来定义其依赖项
+（即，与它们一起使用的其他对象）。
+然后，容器在创建 Bean 时注入那些依赖项。
+从本质上讲，
+此过程是通过使用类的直接构造或诸如服务定位器模式之类的机制来控制其依赖关系的实例化或位置的 Bean 本身的逆过程
+（因此，其称为控制反转）。</p>
 </div>
 <div class="paragraph">
-<p>The <code>org.springframework.beans</code> and <code>org.springframework.context</code> packages are the basis
-for Spring Framework&#8217;s IoC container. The
+<p><code>org.springframework.beans</code> 与 <code>org.springframework.context</code>
+包是 Spring Framework 的 IoC 容器的基础。
 <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/beans/factory/BeanFactory.html"><code>BeanFactory</code></a>
-interface provides an advanced configuration mechanism capable of managing any type of
-object.
+接口提供了一种高级配置机制，
+能够管理任何类型的对象。
 <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/ApplicationContext.html"><code>ApplicationContext</code></a>
-is a sub-interface of <code>BeanFactory</code>. It adds:</p>
+是 <code>BeanFactory</code> 的子接口。它增加了：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Easier integration with Spring&#8217;s AOP features</p>
+<p>与 Spring 的 AOP 特性轻松集成</p>
 </li>
 <li>
-<p>Message resource handling (for use in internationalization)</p>
+<p>消息资源处理（用于国际化）</p>
 </li>
 <li>
-<p>Event publication</p>
+<p>事件发布</p>
 </li>
 <li>
-<p>Application-layer specific contexts such as the <code>WebApplicationContext</code>
-for use in web applications.</p>
+<p>应用层特定的上下文，
+例如 Web 应用程序中使用的 <code>WebApplicationContext</code>。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In short, the <code>BeanFactory</code> provides the configuration framework and basic
-functionality, and the <code>ApplicationContext</code> adds more enterprise-specific functionality.
-The <code>ApplicationContext</code> is a complete superset of the <code>BeanFactory</code> and is used
-exclusively in this chapter in descriptions of Spring&#8217;s IoC container. For more
-information on using the <code>BeanFactory</code> instead of the <code>ApplicationContext,</code> see
-<a href="#beans-beanfactory"><code>BeanFactory</code></a>.</p>
+<p>简而言之，<code>BeanFactory</code> 提供了配置框架与基本功能，
+而 <code>ApplicationContext</code> 添加了更多企业特定的功能。
+<code>ApplicationContext</code> 是 <code>BeanFactory</code> 的完整超集，
+在本章中仅在 Spring 的 IoC 容器描述中使用。
+有关使用 <code>BeanFactory</code> 代替 <code>ApplicationContext</code> 的更多信息，
+请参见 <a href="#beans-beanfactory"><code>BeanFactory</code></a>。</p>
 </div>
 <div class="paragraph">
-<p>In Spring, the objects that form the backbone of your application and that are managed
-by the Spring IoC container are called beans. A bean is an object that is
-instantiated, assembled, and managed by a Spring IoC container. Otherwise, a
-bean is simply one of many objects in your application. Beans, and the dependencies
-among them, are reflected in the configuration metadata used by a container.</p>
+<p>在 Spring 中，
+构成应用程序主干并由 Spring IoC 容器管理的对象称为 Bean。
+Bean 是由 Spring IoC 容器实例化、组装与管理的对象。
+否则，Bean 仅仅是应用程序中许多对象之一。
+Bean 及其之间的依赖反映在容器使用的配置元数据中。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="beans-basics"><a class="anchor" href="#beans-basics"></a>1.2. 容器概述</h3>
 <div class="paragraph">
-<p>The <code>org.springframework.context.ApplicationContext</code> interface represents the Spring IoC
-container and is responsible for instantiating, configuring, and assembling the
-beans. The container gets its instructions on what objects to
-instantiate, configure, and assemble by reading configuration metadata. The
-configuration metadata is represented in XML, Java annotations, or Java code. It lets
-you express the objects that compose your application and the rich interdependencies
-between those objects.</p>
+<p><code>org.springframework.context.ApplicationContext</code>
+接口表示 Spring IoC 容器，
+并负责实例化，配置与组装 Bean。
+容器通过读取配置元数据来获取有关要实例化、
+配置与组装哪些对象的指令。
+配置元数据以 XML、Java 注解或 Java 代码表示。
+它能够表达组成应用程序的对象以及这些对象之间的丰富相互依赖关系。</p>
 </div>
 <div class="paragraph">
-<p>Several implementations of the <code>ApplicationContext</code> interface are supplied
-with Spring. In stand-alone applications, it is common to create an
-instance of
+<p>Spring 提供了
+<code>ApplicationContext</code> 接口的几种实现。
+在独立应用程序中，通常创建
 <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html"><code>ClassPathXmlApplicationContext</code></a>
-or <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html"><code>FileSystemXmlApplicationContext</code></a>.
-While XML has been the traditional format for defining configuration metadata, you can
-instruct the container to use Java annotations or code as the metadata format by
-providing a small amount of XML configuration to declaratively enable support for these
-additional metadata formats.</p>
+或 <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html"><code>FileSystemXmlApplicationContext</code></a>
+的实例。
+尽管 XML 是定义配置元数据的传统格式，
+但是可以通过提供少量 XML 配置来声明性地启用对这些其他元数据格式的支持，
+从而指示容器将 Java 注解或代码用作元数据格式。</p>
 </div>
 <div class="paragraph">
-<p>In most application scenarios, explicit user code is not required to instantiate one or
-more instances of a Spring IoC container. For example, in a web application scenario, a
-simple eight (or so) lines of boilerplate web descriptor XML in the <code>web.xml</code> file
-of the application typically suffices (see <a href="#context-create">方便的 Web 应用程序的 ApplicationContext 实例化</a>). If you use the
-<a href="https://spring.io/tools">Spring Tools for Eclipse</a> (an Eclipse-powered development
-environment), you can easily create this boilerplate configuration with a few mouse clicks or
-keystrokes.</p>
+<p>在大多数应用场景中，
+不需要显式的用户代码来实例化一个 Spring IoC 容器的一个或多个实例。
+例如，在 Web 应用程序场景中，
+应用程序的 <code>web.xml</code> 文件中的简单的八行（约）样板 Web 描述符 XML 通常就足够了
+（请参阅 <a href="#context-create">方便的 Web 应用程序的 ApplicationContext 实例化</a> ）。
+如果使用 <a href="https://spring.io/tools">Spring Tools for Eclipse</a>（Eclipse 支持的开发环境），
+那么只需单击几下鼠标或击键即可轻松创建此样板配置。</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a high-level view of how Spring works. Your application classes
-are combined with configuration metadata so that, after the <code>ApplicationContext</code> is
-created and initialized, you have a fully configured and executable system or
-application.</p>
+<p>下图展示了 Spring 的工作原理的高级视图。
+应用程序类与配置元数据结合在一起，
+以便在创建与初始化 <code>ApplicationContext</code> 之后，
+将拥有一个完全配置且可执行的系统或应用程序。</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/container-magic.png" alt="container magic">
 </div>
-<div class="title">Figure 1. The Spring IoC container</div>
+<div class="title">Figure 1. Spring IoC 容器</div>
 </div>
 <div class="sect3">
 <h4 id="beans-factory-metadata"><a class="anchor" href="#beans-factory-metadata"></a>1.2.1. 配置元数据</h4>
 <div class="paragraph">
-<p>As the preceding diagram shows, the Spring IoC container consumes a form of
-configuration metadata. This configuration metadata represents how you, as an
-application developer, tell the Spring container to instantiate, configure, and assemble
-the objects in your application.</p>
+<p>如上图所示，
+Spring IoC 容器使用一种形式的配置元数据。
+此配置元数据表示作为应用程序开发人员如何告诉 Spring 容器实例化，
+配置和组装应用程序中的对象。</p>
 </div>
 <div class="paragraph">
-<p>Configuration metadata is traditionally supplied in a simple and intuitive XML format,
-which is what most of this chapter uses to convey key concepts and features of the
-Spring IoC container.</p>
+<p>传统上，
+配置元数据以简单直观的 XML 格式提供，
+这是本章大部分内容用来传达 Spring IoC 容器的关键概念与特性的内容。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -940,54 +947,54 @@ Spring IoC container.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-XML-based metadata is not the only allowed form of configuration metadata.
-The Spring IoC container itself is totally decoupled from the format in which this
-configuration metadata is actually written. These days, many developers choose
-<a href="#beans-java">Java-based configuration</a> for their Spring applications.
+基于 XML 的元数据不是配置元数据的唯一允许形式。
+Spring IoC 容器本身与实际写入此配置元数据的格式完全脱钩。
+如今，许多开发人员为他们的 Spring 应用程序选择
+<a href="#beans-java">基于 Java 的配置</a>。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For information about using other forms of metadata with the Spring container, see:</p>
+<p>有关在 Spring 容器中使用其他形式的元数据的信息，请参见：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#beans-annotation-config">Annotation-based configuration</a>: Spring 2.5 introduced
-support for annotation-based configuration metadata.</p>
+<p><a href="#beans-annotation-config">基于注解配置</a>:
+Spring 2.5 引入了对基于注解的配置元数据的支持。</p>
 </li>
 <li>
-<p><a href="#beans-java">Java-based configuration</a>: Starting with Spring 3.0, many features
-provided by the Spring JavaConfig project became part of the core Spring Framework.
-Thus, you can define beans external to your application classes by using Java rather
-than XML files. To use these new features, see the
-<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html"><code>@Configuration</code></a>,
-<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html"><code>@Bean</code></a>,
-<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html"><code>@Import</code></a>,
-and <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html"><code>@DependsOn</code></a> annotations.</p>
+<p><a href="#beans-java">基于 Java 配置</a>:
+从 Spring 3.0 开始，Spring JavaConfig 项目提供的许多特性已成为 Spring Framework 核心的一部分。
+因此，可以使用 Java 而不是 XML 文件来定义应用程序类外部的 Bean。
+要使用这些新特性，请参见
+<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html"><code>@Configuration</code></a>、
+<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html"><code>@Bean</code></a>、
+<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Import.html"><code>@Import</code></a>、
+与 <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html"><code>@DependsOn</code></a> 注解。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Spring configuration consists of at least one and typically more than one bean
-definition that the container must manage. XML-based configuration metadata configures these
-beans as <code>&lt;bean/&gt;</code> elements inside a top-level <code>&lt;beans/&gt;</code> element. Java
-configuration typically uses <code>@Bean</code>-annotated methods within a <code>@Configuration</code> class.</p>
+<p>Spring 配置由容器必须管理的至少一个（通常是一个以上）Bean 定义组成。
+基于 XML 的配置元数据将这些 Bean 配置为顶级 <code>&lt;bean/&gt;</code> 元素内的 <code>&lt;bean/&gt;</code> 元素。
+Java 配置通常在 <code>@Configuration</code>
+类中使用 <code>@Bean</code> 注解的方法。</p>
 </div>
 <div class="paragraph">
-<p>These bean definitions correspond to the actual objects that make up your application.
-Typically, you define service layer objects, data access objects (DAOs), presentation
-objects such as Struts <code>Action</code> instances, infrastructure objects such as Hibernate
-<code>SessionFactories</code>, JMS <code>Queues</code>, and so forth. Typically, one does not configure
-fine-grained domain objects in the container, because it is usually the responsibility
-of DAOs and business logic to create and load domain objects. However, you can use
-Spring&#8217;s integration with AspectJ to configure objects that have been created outside
-the control of an IoC container. See <a href="#aop-atconfigurable">Using AspectJ to
-dependency-inject domain objects with Spring</a>.</p>
+<p>这些 Bean 定义对应于组成应用程序的实际对象。
+通常，定义服务层对象，数据访问对象（DAO），
+表示对象（例如，标记层 <code>Action</code> 实例），
+基础结构对象
+（例如：Hibernate <code>SessionFactories</code>、JMS <code>Queues</code>）等等。
+通常，不会在容器中配置细粒度的域对象，
+因为创建与加载域对象通常是 DAO 与业务逻辑的职责。
+但是，可以使用 Spring 与 AspectJ 的集成来配置在 IoC 容器的控制范围之外创建的对象。
+请参阅 <a href="#aop-atconfigurable">使用 AspectJ 与 Spring 依赖注入域对象</a> 。</p>
 </div>
 <div class="paragraph">
-<p>The following example shows the basic structure of XML-based configuration metadata:</p>
+<p>以下示例展示了基于 XML 的配置元数据的基本结构：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -998,14 +1005,14 @@ dependency-inject domain objects with Spring</a>.</p>
         https://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
 
     &lt;bean id="..." class="..."&gt; <i class="conum" data-value="1"></i><b>(1)</b> <i class="conum" data-value="2"></i><b>(2)</b>
-        &lt;!-- collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 此 Bean 的协作者与配置在这里 --&gt;
     &lt;/bean&gt;
 
     &lt;bean id="..." class="..."&gt;
-        &lt;!-- collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 此 Bean 的协作者与配置在这里 --&gt;
     &lt;/bean&gt;
 
-    &lt;!-- more bean definitions go here --&gt;
+    &lt;!-- 更多的 Bean 定义在这里 --&gt;
 
 &lt;/beans&gt;</code></pre>
 </div>
@@ -1014,28 +1021,28 @@ dependency-inject domain objects with Spring</a>.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>id</code> attribute is a string that identifies the individual bean definition.</td>
+<td><code>id</code> 属性是一个标识单个 Bean 定义的字符串。</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <code>class</code> attribute defines the type of the bean and uses the fully qualified
-classname.</td>
+<td><code>class</code> 属性定义了 Bean
+的类型并使用完全限定的类名称。</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The value of the <code>id</code> attribute refers to collaborating objects. The XML for
-referring to collaborating objects is not shown in this example. See
-<a href="#beans-dependencies">Dependencies</a> for more information.</p>
+<p><code>id</code> 属性的值引用协作对象。
+在此示例中未显示用于引用协作对象的 XML。
+有关更多信息，请参见 <a href="#beans-dependencies">依赖项</a>。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="beans-factory-instantiation"><a class="anchor" href="#beans-factory-instantiation"></a>1.2.2. 实例化容器</h4>
 <div class="paragraph">
-<p>The location path or paths
-supplied to an <code>ApplicationContext</code> constructor are resource strings that let
-the container load configuration metadata from a variety of external resources, such
-as the local file system, the Java <code>CLASSPATH</code>, and so on.</p>
+<p>提供给 <code>ApplicationContext</code> 构造函数的位置路径是资源字符串，
+这些资源字符串使容器可以从各种外部资源
+（例如本地文件系统、Java <code>CLASSPATH</code> 等）
+加载配置元数据。</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1057,17 +1064,17 @@ as the local file system, the Java <code>CLASSPATH</code>, and so on.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>After you learn about Spring&#8217;s IoC container, you may want to know more about Spring&#8217;s
-<code>Resource</code> abstraction (as described in <a href="#resources">Resources</a>), which provides a convenient
-mechanism for reading an InputStream from locations defined in a URI syntax. In particular,
-<code>Resource</code> paths are used to construct applications contexts, as described in <a href="#resources-app-ctx">Application Contexts and Resource Paths</a>.</p>
+<p>在了解了 Spring 的 IoC 容器之后，可能想了解更多有关 Spring 的 <code>Resource</code> 抽象
+（如 <a href="#resources">Resources</a> 所述），
+它提供了一种方便的机制，用于从 URI 语法中定义的位置读取输入流。
+尤其是，如 <a href="#resources-app-ctx">Application Contexts and Resource Paths</a> 中所述，<code>Resource</code> 路径用于构造应用程序上下文。</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following example shows the service layer objects <code>(services.xml)</code> configuration file:</p>
+<p>以下示例展示了服务层对象 <code>(services.xml)</code> 的配置文件：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1077,21 +1084,21 @@ mechanism for reading an InputStream from locations defined in a URI syntax. In 
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
 
-    &lt;!-- services --&gt;
+    &lt;!-- 服务 --&gt;
 
     &lt;bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl"&gt;
         &lt;property name="accountDao" ref="accountDao"/&gt;
         &lt;property name="itemDao" ref="itemDao"/&gt;
-        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 此 Bean 的其他协作者与配置在此处 --&gt;
     &lt;/bean&gt;
 
-    &lt;!-- more bean definitions for services go here --&gt;
+    &lt;!-- 更多关于服务的 Bean 定义在这里 --&gt;
 
 &lt;/beans&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The following example shows the data access objects <code>daos.xml</code> file:</p>
+<p>以下示例展示了数据访问对象 <code>daos.xml</code> 文件：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1103,39 +1110,39 @@ mechanism for reading an InputStream from locations defined in a URI syntax. In 
 
     &lt;bean id="accountDao"
         class="org.springframework.samples.jpetstore.dao.jpa.JpaAccountDao"&gt;
-        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 此 Bean 的其他协作者与配置在此处 --&gt;
     &lt;/bean&gt;
 
     &lt;bean id="itemDao" class="org.springframework.samples.jpetstore.dao.jpa.JpaItemDao"&gt;
-        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+        &lt;!-- 此 Bean 的其他协作者与配置在此处 --&gt;
     &lt;/bean&gt;
 
-    &lt;!-- more bean definitions for data access objects go here --&gt;
+    &lt;!-- 更多数据访问对象的 Bean 定义在这里 --&gt;
 
 &lt;/beans&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In the preceding example, the service layer consists of the <code>PetStoreServiceImpl</code> class
-and two data access objects of the types <code>JpaAccountDao</code> and <code>JpaItemDao</code> (based
-on the JPA Object-Relational Mapping standard). The <code>property name</code> element refers to the
-name of the JavaBean property, and the <code>ref</code> element refers to the name of another bean
-definition. This linkage between <code>id</code> and <code>ref</code> elements expresses the dependency between
-collaborating objects. For details of configuring an object&#8217;s dependencies, see
-<a href="#beans-dependencies">Dependencies</a>.</p>
+<p>在前面的示例中，服务层由 <code>PetStoreServiceImpl</code> 类与两个
+<code>JpaAccountDao</code> 与 <code>JpaItemDao</code> 类型的数据访问对象组成
+（基于 JPA 对象关系映射标准）。
+<code>property name</code> 元素引用 JavaBean 属性的名称，而 <code>ref</code> 元素引用另一个 Bean 定义的名称。
+<code>id</code> 与 <code>ref</code> 元素之间的这种联系表达了协作对象之间的依赖。
+有关配置对象的依存关系的详细信息，请参阅
+<a href="#beans-dependencies">依赖项</a>。</p>
 </div>
 <div class="sect4">
 <h5 id="beans-factory-xml-import"><a class="anchor" href="#beans-factory-xml-import"></a>组合基于 XML 的配置元数据</h5>
 <div class="paragraph">
-<p>It can be useful to have bean definitions span multiple XML files. Often, each individual
-XML configuration file represents a logical layer or module in your architecture.</p>
+<p>使 Bean 定义跨越多个 XML 文件可能会很有用。
+通常，每个单独的 XML 配置文件都代表体系结构中的逻辑层或模块。</p>
 </div>
 <div class="paragraph">
-<p>You can use the application context constructor to load bean definitions from all these
-XML fragments. This constructor takes multiple <code>Resource</code> locations, as was shown in the
-<a href="#beans-factory-instantiation">previous section</a>. Alternatively, use one or more
-occurrences of the <code>&lt;import/&gt;</code> element to load bean definitions from another file or
-files. The following example shows how to do so:</p>
+<p>可以使用应用程序上下文构造函数从所有这些 XML 片段中加载 Bean 定义。
+如 <a href="#beans-factory-instantiation">上一节</a> 中所示，
+此构造函数具有多个 <code>Resource</code> 位置。
+或者，使用一个或多个出现的 <code>&lt;import/&gt;</code> 元素从另一个文件中加载 Bean 定义。
+以下示例展示了如何执行此操作：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1150,15 +1157,15 @@ files. The following example shows how to do so:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In the preceding example, external bean definitions are loaded from three files:
-<code>services.xml</code>, <code>messageSource.xml</code>, and <code>themeSource.xml</code>. All location paths are
-relative to the definition file doing the importing, so <code>services.xml</code> must be in the
-same directory or classpath location as the file doing the importing, while
-<code>messageSource.xml</code> and <code>themeSource.xml</code> must be in a <code>resources</code> location below the
-location of the importing file. As you can see, a leading slash is ignored. However, given
-that these paths are relative, it is better form not to use the slash at all. The
-contents of the files being imported, including the top level <code>&lt;beans/&gt;</code> element, must
-be valid XML bean definitions, according to the Spring Schema.</p>
+<p>在前面的示例中，
+外部 Bean 定义是从以下三个文件加载的：
+<code>services.xml</code>、<code>messageSource.xml</code> 与 <code>themeSource.xml</code>。
+所有位置路径都相对于进行导入的定义文件，
+因此，<code>services.xml</code> 必须与进行导入的文件位于同一目录或类路径位置，
+而 <code>messageSource.xml</code> 与 <code>themeSource.xml</code> 必须位于该位置下方的 <code>resources</code> 位置导入文件。
+正如所见，斜杠被忽略。
+但是，鉴于这些路径是相对的，最好不要使用任何斜杠。
+根据 Spring 模式，导入文件的内容（包括顶级 <code>&lt;beans/&gt;</code> 元素）必须是有效的 XML Bean 定义。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1168,12 +1175,12 @@ be valid XML bean definitions, according to the Spring Schema.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is possible, but not recommended, to reference files in parent directories using a
-relative "../" path. Doing so creates a dependency on a file that is outside the current
-application. In particular, this reference is not recommended for <code>classpath:</code> URLs (for
-example, <code>classpath:../services.xml</code>), where the runtime resolution process chooses the
-&#8220;nearest&#8221; classpath root and then looks into its parent directory. Classpath
-configuration changes may lead to the choice of a different, incorrect directory.</p>
+<p>可以但不建议使用相对的“../”路径引用父目录中的文件。
+这样做会创建对当前应用程序外部文件的依赖。
+特别是，不建议对 <code>classpath:</code> URL
+（例如：<code>classpath:../services.xml</code>）使用此引用，
+在 URL 中，运行时解析过程会选择“最近”的 classpath 根目录，然后查看其父目录。
+classpath 配置更改可能导致选择其他错误的目录。</p>
 </div>
 <div class="paragraph">
 <p>You can always use fully qualified resource locations instead of relative paths: for
