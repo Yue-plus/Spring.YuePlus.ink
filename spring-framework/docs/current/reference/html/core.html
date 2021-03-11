@@ -1183,30 +1183,30 @@ Java 配置通常在 <code>@Configuration</code>
 classpath 配置更改可能导致选择其他错误的目录。</p>
 </div>
 <div class="paragraph">
-<p>You can always use fully qualified resource locations instead of relative paths: for
-example, <code>file:C:/config/services.xml</code> or <code>classpath:/config/services.xml</code>. However, be
-aware that you are coupling your application&#8217;s configuration to specific absolute
-locations. It is generally preferable to keep an indirection for such absolute
-locations&#8201;&#8212;&#8201;for example, through "${&#8230;&#8203;}" placeholders that are resolved against JVM
-system properties at runtime.</p>
+<p>始终可以使用完全限定的资源位置来代替相对路径：
+例如，<code>file:C:/config/services.xml</code> 或 <code>classpath:/config/services.xml</code>。
+但是请注意，
+正在将应用程序的配置耦合到特定的绝对位置。
+通常最好为这样的绝对位置保留一个相对位置，
+例如，通过在运行时针对 JVM 系统属性解析的“${&#8230;&#8203;}”占位符。</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The namespace itself provides the import directive feature. Further
-configuration features beyond plain bean definitions are available in a selection
-of XML namespaces provided by Spring&#8201;&#8212;&#8201;for example, the <code>context</code> and <code>util</code> namespaces.</p>
+<p>命名空间本身提供了导入指令功能。
+Spring 所提供的一系列 XML 命名空间 （例如，<code>context</code> 与 <code>util</code> 命名空间）
+中提供了超出普通 Bean 定义的其他配置特性。</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="groovy-bean-definition-dsl"><a class="anchor" href="#groovy-bean-definition-dsl"></a>Groovy Bean 定义 DSL</h5>
 <div class="paragraph">
-<p>As a further example for externalized configuration metadata, bean definitions can also
-be expressed in Spring&#8217;s Groovy Bean Definition DSL, as known from the Grails framework.
-Typically, such configuration live in a ".groovy" file with the structure shown in the
-following example:</p>
+<p>作为外部化配置元数据的另一个示例，
+Bean 定义也可以在 Spring  Groovy Bean 定义的 DSL 中表达，这是从 Grails 框架中了解到的。
+通常，这种配置位于“.groovy”文件中，
+其结构如以下示例所示：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1230,22 +1230,22 @@ following example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This configuration style is largely equivalent to XML bean definitions and even
-supports Spring&#8217;s XML configuration namespaces. It also allows for importing XML
-bean definition files through an <code>importBeans</code> directive.</p>
+<p>这种配置风格在很大程度上等同于 XML Bean 定义，
+甚至支持 Spring 的 XML 配置命名空间。
+它还允许通过 <code>importBeans</code> 指令导入 XML Bean 定义文件。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="beans-factory-client"><a class="anchor" href="#beans-factory-client"></a>1.2.3. 使用容器</h4>
 <div class="paragraph">
-<p>The <code>ApplicationContext</code> is the interface for an advanced factory capable of maintaining
-a registry of different beans and their dependencies. By using the method
-<code>T getBean(String name, Class&lt;T&gt; requiredType)</code>, you can retrieve instances of your beans.</p>
+<p><code>ApplicationContext</code> 是高级工厂的接口，该工厂能够维护不同 Bean 及其依赖注册表。
+通过使用方法 <code>T getBean(String name, Class&lt;T&gt; requiredType)</code>，
+可以检索 Bean 的实例。</p>
 </div>
 <div class="paragraph">
-<p>The <code>ApplicationContext</code> lets you read bean definitions and access them, as the following
-example shows:</p>
+<p><code>ApplicationContext</code> 允许读取 Bean 定义并访问它们，
+如以下示例所示：</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1276,9 +1276,9 @@ var userList = service.getUsernameList()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>With Groovy configuration, bootstrapping looks very similar. It has a different context
-implementation class which is Groovy-aware (but also understands XML bean definitions).
-The following example shows Groovy configuration:</p>
+<p>使用 Groovy 配置，引导看起来非常相似。
+它有一个不同的上下文实现类，该类可以识别 Groovy（但也可以理解 XML Bean 定义）。
+以下示例展示了 Groovy 配置：</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1293,9 +1293,9 @@ The following example shows Groovy configuration:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The most flexible variant is <code>GenericApplicationContext</code> in combination with reader
-delegates&#8201;&#8212;&#8201;for example, with <code>XmlBeanDefinitionReader</code> for XML files, as the following
-example shows:</p>
+<p>最灵活的变体是 <code>GenericApplicationContext</code> 与读取器委托结合使用，
+例如：与 XML 文件的 <code>XmlBeanDefinitionReader</code> 结合使用，
+如以下示例所示：</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1314,8 +1314,8 @@ context.refresh()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also use the <code>GroovyBeanDefinitionReader</code> for Groovy files, as the following
-example shows:</p>
+<p>还可以将 <code>GroovyBeanDefinitionReader</code> 用于 Groovy 文件，
+如以下示例所示：</p>
 </div>
 <div class="listingblock primary">
 <div class="title">Java</div>
@@ -1334,66 +1334,66 @@ context.refresh()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can mix and match such reader delegates on the same <code>ApplicationContext</code>,
-reading bean definitions from diverse configuration sources.</p>
+<p>可以在同一 <code>ApplicationContext</code> 上混合并匹配此类阅读器委托，
+从不同的配置源读取 Bean 定义。</p>
 </div>
 <div class="paragraph">
-<p>You can then use <code>getBean</code> to retrieve instances of your beans. The <code>ApplicationContext</code>
-interface has a few other methods for retrieving beans, but, ideally, your application
-code should never use them. Indeed, your application code should have no calls to the
-<code>getBean()</code> method at all and thus have no dependency on Spring APIs at all. For example,
-Spring&#8217;s integration with web frameworks provides dependency injection for various web
-framework components such as controllers and JSF-managed beans, letting you declare
-a dependency on a specific bean through metadata (such as an autowiring annotation).</p>
+<p>然后，可以使用 <code>getBean</code> 检索 Bean 的实例。
+<code>ApplicationContext</code> 接口还有其他几种检索 Bean 的方法，
+但是理想情况下，应用程序代码不应该使用它们。
+实际上，应用程序代码应该根本不调用 <code>getBean()</code> 方法，
+因此完全不依赖于 Spring API。
+例如，Spring 与 Web 框架的集成为各种 Web 框架组件（如控制器与 JSF 管理的 Bean）提供了依赖注入，
+使可以通过元数据（例如自动装配注释）声明对特定Bean的依赖项。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="beans-definition"><a class="anchor" href="#beans-definition"></a>1.3. Bean 概览</h3>
 <div class="paragraph">
-<p>A Spring IoC container manages one or more beans. These beans are created with the
-configuration metadata that you supply to the container (for example, in the form of XML
-<code>&lt;bean/&gt;</code> definitions).</p>
+<p>Spring IoC 容器管理一个或多个 Bean。
+这些 Bean 是使用提供给容器的配置元数据创建的
+（例如，以 XML <code>&lt;bean/&gt;</code> 定义的形式）。</p>
 </div>
 <div class="paragraph">
-<p>Within the container itself, these bean definitions are represented as <code>BeanDefinition</code>
-objects, which contain (among other information) the following metadata:</p>
+<p>在容器本身内，这些 Bean 定义表示为 <code>BeanDefinition</code> 对象，
+其中包含（除其他信息外）以下元数据：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A package-qualified class name: typically, the actual implementation class of the
-bean being defined.</p>
+<p>包限定的类名：
+通常，定义了 Bean 的实际实现类。</p>
 </li>
 <li>
-<p>Bean behavioral configuration elements, which state how the bean should behave in the
-container (scope, lifecycle callbacks, and so forth).</p>
+<p>Bean 行为配置元素，用于声明 Bean 在容器中的行为
+（作用域、生命周期回调等）。</p>
 </li>
 <li>
-<p>References to other beans that are needed for the bean to do its work. These
-references are also called collaborators or dependencies.</p>
+<p>引用其它 Bean 来完成其工作所需要的。
+这些引用也称为协作者或依赖项。</p>
 </li>
 <li>
-<p>Other configuration settings to set in the newly created object&#8201;&#8212;&#8201;for example, the size
-limit of the pool or the number of connections to use in a bean that manages a
-connection pool.</p>
+<p>要在新创建的对象中设置的其他配置设置，
+例如：
+池的大小限制或要在管理连接池的 Bean 中使用的连接数。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This metadata translates to a set of properties that make up each bean definition.
-The following table describes these properties:</p>
+<p>此元数据转换为构成每个 Bean 定义的一组属性。
+下表描述了这些属性：</p>
 </div>
 <table id="beans-factory-bean-definition-tbl" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. The bean definition</caption>
+<caption class="title">Table 1. Bean 定义</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Explained in&#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">属性</th>
+<th class="tableblock halign-left valign-top">解释……</th>
 </tr>
 </thead>
 <tbody>
@@ -1436,14 +1436,14 @@ The following table describes these properties:</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>In addition to bean definitions that contain information on how to create a specific
-bean, the <code>ApplicationContext</code> implementations also permit the registration of existing
-objects that are created outside the container (by users). This is done by accessing the
-ApplicationContext&#8217;s BeanFactory through the <code>getBeanFactory()</code> method, which returns the
-BeanFactory <code>DefaultListableBeanFactory</code> implementation. <code>DefaultListableBeanFactory</code>
-supports this registration through the <code>registerSingleton(..)</code> and
-<code>registerBeanDefinition(..)</code> methods. However, typical applications work solely with beans
-defined through regular bean definition metadata.</p>
+<p>除了包含有关如何创建特定 Bean 的信息的 Bean 定义之外，
+<code>ApplicationContext</code> 实现还允许注册在容器外部（由用户）创建的现有对象。
+这是通过通过 <code>getBeanFactory()</code> 方法访问 ApplicationContext 的 BeanFactory 来完成的，
+该方法返回 BeanFactory <code>DefaultListableBeanFactory</code> 实现。
+<code>DefaultListableBeanFactory</code> 通过
+<code>registerSingleton(..)</code> 与 <code>registerBeanDefinition(..)</code> 方法支持此注册。
+但是，
+典型的应用程序只能与通过常规 Bean 定义元数据定义的 Bean 一起使用。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1453,12 +1453,12 @@ defined through regular bean definition metadata.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Bean metadata and manually supplied singleton instances need to be registered as early
-as possible, in order for the container to properly reason about them during autowiring
-and other introspection steps. While overriding existing metadata and existing
-singleton instances is supported to some degree, the registration of new beans at
-runtime (concurrently with live access to the factory) is not officially supported and may
-lead to concurrent access exceptions, inconsistent state in the bean container, or both.</p>
+<p>Bean 元数据与手动提供的单例实例需要尽早注册，以便容器在自动装配与其他自省步骤中正确地判断它们。
+虽然在某种程度上支持覆盖现有元数据与现有单例实例，但是在运行时
+（与对工厂的实时访问同时）
+对新 Bean 的注册不被正式支持，
+并且可能导致并发访问异常，
+Bean 容器中的状态不一致或两者都不一致。</p>
 </div>
 </td>
 </tr>
