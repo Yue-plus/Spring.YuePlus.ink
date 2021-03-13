@@ -4,6 +4,7 @@ Spring 文档翻译
 
 - **Spring Framework 文档**
   + [Version 5.3.5-SNAPSHOT](http://spring.yueplus.ink/spring-framework/docs/current/reference/html/)
+  + [Web Servlet -> 4. WebSockets](https://note.yueplus.ink/coding/Spring/Framework/WebServlet/4.WebSockets.html)
 
 ## 参与翻译
 
