@@ -1467,43 +1467,43 @@ Bean 容器中的状态不一致或两者都不一致。</p>
 <div class="sect3">
 <h4 id="beans-beanname"><a class="anchor" href="#beans-beanname"></a>1.3.1. 命名 Bean</h4>
 <div class="paragraph">
-<p>Every bean has one or more identifiers. These identifiers must be unique within the
-container that hosts the bean. A bean usually has only one identifier. However, if it
-requires more than one, the extra ones can be considered aliases.</p>
+<p>每个 Bean 具有一个或多个标识符。
+这些标识符在承载 Bean 的容器内必须是唯一的。一个 Bean 通常只有一个标识符。
+但是，如果需要多个，那么额外的一个可以被认为是别名。</p>
 </div>
 <div class="paragraph">
-<p>In XML-based configuration metadata, you use the <code>id</code> attribute, the <code>name</code> attribute, or
-both to specify the bean identifiers. The <code>id</code> attribute lets you specify
-exactly one id. Conventionally, these names are alphanumeric ('myBean',
-'someService', etc.), but they can contain special characters as well. If you want to
-introduce other aliases for the bean, you can also specify them in the <code>name</code>
-attribute, separated by a comma (<code>,</code>), semicolon (<code>;</code>), or white space. As a
-historical note, in versions prior to Spring 3.1, the <code>id</code> attribute was
-defined as an <code>xsd:ID</code> type, which constrained possible characters. As of 3.1,
-it is defined as an <code>xsd:string</code> type. Note that bean <code>id</code> uniqueness is still
-enforced by the container, though no longer by XML parsers.</p>
+<p>在基于 XML 的配置元数据中，可以使用 <code>id</code> 属性与/或 <code>name</code> 属性来指定 Bean 标识符。
+<code>id</code> 属性可以精确指定一个 id。
+通常，这些名称是字母数字（“myBean”，“someService”等），但它们也可以包含特殊字符。
+如果要为 Bean 引入其他别名，还可以在 <code>name</code> 属性中指定它们，
+并用逗号（<code>,</code>），分号（<code>;</code>）或空格分隔。
+作为历史记录，在 Spring 3.1 之前的版本中，
+<code>id</code> 属性定义为 <code>xsd:ID</code> 类型，
+该类型限制了可能的字符。
+从 3.1 开始，它被定义为 <code>xsd:string</code> 类型。
+请注意，Bean ID 唯一性仍由容器强制执行，但不再由 XML 解析器强制。</p>
 </div>
 <div class="paragraph">
-<p>You are not required to supply a <code>name</code> or an <code>id</code> for a bean. If you do not supply a
-<code>name</code> or <code>id</code> explicitly, the container generates a unique name for that bean. However,
-if you want to refer to that bean by name, through the use of the <code>ref</code> element or a
-Service Locator style lookup, you must provide a name.
-Motivations for not supplying a name are related to using <a href="#beans-inner-beans">inner
-beans</a> and <a href="#beans-factory-autowire">autowiring collaborators</a>.</p>
+<p>不需要提供 Bean 的 <code>name</code> 或 <code>id</code>。
+如果未明确提供 <code>name</code> 或 <code>id</code>，那么容器将为该 Bean 生成一个唯一的名称。
+但是，如果要通过名称引用该 Bean，那么通过使用 <code>ref</code> 元素或服务定位器样式查找，必须提供一个名称。
+不提供名称的动机与使用
+<a href="#beans-inner-beans">内部 Bean</a> 与
+<a href="#beans-factory-autowire">自动装配合作者</a> 有关。</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">Bean Naming Conventions</div>
+<div class="title">Bean 命名规则</div>
 <div class="paragraph">
-<p>The convention is to use the standard Java convention for instance field names when
-naming beans. That is, bean names start with a lowercase letter and are camel-cased
-from there. Examples of such names include <code>accountManager</code>,
-<code>accountService</code>, <code>userDao</code>, <code>loginController</code>, and so forth.</p>
+<p>约定是在命名 Bean 时将标准 Java 约定来命名实例字段名。
+也就是说，Bean 名称以小写字母开头，并从那里用驼峰格式。
+此类名称的示例包括：
+<code>accountManager</code>、<code>accountService</code>、<code>userDao</code>、<code>loginController</code>、等。</p>
 </div>
 <div class="paragraph">
-<p>Naming beans consistently makes your configuration easier to read and understand.
-Also, if you use Spring AOP, it helps a lot when applying advice to a set of beans
-related by name.</p>
+<p>一致地命名 Bean 使​​配置更易于阅读与理解。
+另外，如果使用 Spring AOP，
+那么在将建议应用于名称相关的一组 Bean 时，它会很有帮助。</p>
 </div>
 </div>
 </div>
@@ -1514,12 +1514,12 @@ related by name.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-With component scanning in the classpath, Spring generates bean names for unnamed
-components, following the rules described earlier: essentially, taking the simple class name
-and turning its initial character to lower-case. However, in the (unusual) special
-case when there is more than one character and both the first and second characters
-are upper case, the original casing gets preserved. These are the same rules as
-defined by <code>java.beans.Introspector.decapitalize</code> (which Spring uses here).
+通过在类路径中进行组件扫描，Spring 会按照前面描述的规则为未命名的组件生成 Bean 名称：
+本质上，采用简单的类名并将其首字符转换为小写。
+但是，在（不寻常的）特殊情况下，
+如果有多个字符并且第一个与第二个字符均为大写字母，那么会保留原始大小写。
+这些规则与 <code>java.beans.Introspector.decapitalize</code>
+（Spring 在此使用）定义的规则相同。
 </td>
 </tr>
 </table>
@@ -1527,20 +1527,20 @@ defined by <code>java.beans.Introspector.decapitalize</code> (which Spring uses 
 <div class="sect4">
 <h5 id="beans-beanname-alias"><a class="anchor" href="#beans-beanname-alias"></a>在 Bean 定义之外别名 Bean</h5>
 <div class="paragraph">
-<p>In a bean definition itself, you can supply more than one name for the bean, by using a
-combination of up to one name specified by the <code>id</code> attribute and any number of other
-names in the <code>name</code> attribute. These names can be equivalent aliases to the same bean
-and are useful for some situations, such as letting each component in an application
-refer to a common dependency by using a bean name that is specific to that component
-itself.</p>
+<p>在 Bean 定义本身中，
+可以通过使用由 <code>id</code> 属性指定的一个名称与 <code>name</code> 属性中任意数量的其他名称的组合来为 Bean 提供多个名称。
+这些名称可以是同一个 Bean 的等效别名，
+并且在某些情况下很有用，
+例如，通过使用特定于该组件本身的 Bean 名称，
+让应用程序中的每个组件都引用一个公共依赖项。</p>
 </div>
 <div class="paragraph">
-<p>Specifying all aliases where the bean is actually defined is not always adequate,
-however. It is sometimes desirable to introduce an alias for a bean that is defined
-elsewhere. This is commonly the case in large systems where configuration is split
-amongst each subsystem, with each subsystem having its own set of object definitions.
-In XML-based configuration metadata, you can use the <code>&lt;alias/&gt;</code> element to accomplish
-this. The following example shows how to do so:</p>
+<p>但是，指定实际定义 Bean 的所有别名并不总是足够的。
+有时需要为在别处定义的 Bean 引入别名。
+在大型系统中通常是这种情况，在大型系统中，
+配置在每个子系统之间分配，每个子系统都有自己的对象定义集。
+在基于 XML 的配置元数据中，可以使用 <code>&lt;alias/&gt;</code> 元素来完成此操作。
+以下示例展示了如何执行此操作：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1548,16 +1548,16 @@ this. The following example shows how to do so:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In this case, a bean (in the same container) named <code>fromName</code> may also,
-after the use of this alias definition, be referred to as <code>toName</code>.</p>
+<p>在这种情况下，在使用该别名定义之后，
+也可以将名为 <code>fromName</code> 的 Bean（在同一容器中）称为 <code>toName</code>。</p>
 </div>
 <div class="paragraph">
-<p>For example, the configuration metadata for subsystem A may refer to a DataSource by the
-name of <code>subsystemA-dataSource</code>. The configuration metadata for subsystem B may refer to
-a DataSource by the name of <code>subsystemB-dataSource</code>. When composing the main application
-that uses both these subsystems, the main application refers to the DataSource by the
-name of <code>myApp-dataSource</code>. To have all three names refer to the same object, you can
-add the following alias definitions to the configuration metadata:</p>
+<p>例如，
+子系统 A 的配置元数据可以通过 <code>subsystemA-dataSource</code> 的名称引用数据源。
+组成使用这两个子系统的主应用程序时，
+主应用程序通过 <code>myApp-dataSource</code> 的名称引用数据源。
+要使所有三个名称都引用同一个对象，
+可以将以下别名定义添加到配置元数据中：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1566,16 +1566,16 @@ add the following alias definitions to the configuration metadata:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Now each component and the main application can refer to the dataSource through a name
-that is unique and guaranteed not to clash with any other definition (effectively
-creating a namespace), yet they refer to the same bean.</p>
+<p>现在，每个组件与主应用程序都可以通过唯一的名称引用数据源，
+并保证不会与任何其他定义冲突（有效地创建命名空间），
+但它们引用的是同一 Bean。</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">Java-configuration</div>
+<div class="title">Java 配置</div>
 <div class="paragraph">
-<p>If you use Javaconfiguration, the <code>@Bean</code> annotation can be used to provide aliases.
-See <a href="#beans-java-bean-annotation">使用 <code>@Bean</code> 注解</a> for details.</p>
+<p>如果使用 Java 配置，那么 <code>@Bean</code> 注解可用于提供别名。
+有关更多信息，请参见 <a href="#beans-java-bean-annotation">使用 <code>@Bean</code> 注解</a></p>
 </div>
 </div>
 </div>
